@@ -11,10 +11,8 @@ module Game4
 
     def initialize(input)
       @input = input
-      @player = Player.new
       @frm = 1
       @flg = 1
-      @dx = 0
     end
 
     def set_fields
@@ -27,7 +25,6 @@ module Game4
                                      )
     end
 
-
     def play
       set_fields
       @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
@@ -35,6 +32,12 @@ module Game4
       @@current_frame += 1
       @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
 
+    end
+
+    def clear
+      @frm = 1
+      @flg = 1
+      @@current_frame =0
     end
   end
 end

@@ -18,5 +18,10 @@ module Game2
       @player.x += @dx
       @player.draw
     end
+
+    def clear
+      @frm = 1
+      @dx = 0
+    end
   end
 end
