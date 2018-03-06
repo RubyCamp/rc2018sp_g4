@@ -1,5 +1,6 @@
+module Game2
 class Player
-  attr_accessor :x
+ 	 attr_accessor :x
 
   def initialize
     @image = Image.load('images/player.png')
@@ -12,4 +13,5 @@ class Player
     Window.draw(@x, @y, @image)
     @y += Input.y
   end
+end
 end

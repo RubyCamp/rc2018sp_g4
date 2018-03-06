@@ -1,3 +1,4 @@
+module Game5
 class Player
   attr_accessor :x
 
@@ -12,4 +13,5 @@ class Player
     Window.draw(@x, @y, @image)
     @y += Input.y
   end
+end
 end
