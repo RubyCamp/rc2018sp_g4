@@ -7,6 +7,8 @@ module Game
       @image.set_color_key(C_BLACK)
       @x = 240
       @y = 150  
+      @back1 = Image.load('images/back1.png')
+      @back2 = Image.load('images/back2.png')
 
       @font = Font.new(32, 'ＭＳ Ｐゴシック')
       @input = input
@@ -17,8 +19,15 @@ module Game
     end
 
     def play
+      if @frm < 3 then
+        Window.draw(0, 0, @back1)
+      else 
+        Window.draw(0, 0, @back2) 
+      end
+
       @frm += 1
       @frm = 0 if @frm > 15
+      @y = @menu_hash[@scene_flag]      
 
       Window.draw_font(300, 150, "ゲーム1", @font)
       Window.draw_font(300, 200, "ゲーム2", @font)
@@ -29,14 +38,7 @@ module Game
 
       @scene_flag += @input.get_sw1 if @frm == 1
       @scene_flag %= 5
-      @y = @menu_hash[@scene_flag]      
       Scene.move_to(@s_hash[@scene_flag]) if @input.get_sw2 == 1 && @frm == 1
     end
-
-    def change_scene        
-       return @scene_flag
-    end
-
   end
-
 end
