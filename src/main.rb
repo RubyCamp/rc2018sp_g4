@@ -1,4 +1,5 @@
 require 'dxruby'
+require 'smalrubot'
 require_relative 'scene'
 require_relative 'scene_title/director'
 require_relative 'scene_game/director'
@@ -15,7 +16,7 @@ Window.height = 600
 board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
 input = Controller.new(board)
 
-Scene.add(Title::Director.new, :title)
+Scene.add(Title::Director.new(input), :title)
 Scene.add(Game::Director.new(input), :game)
 Scene.add(Game1::Director.new(input), :game1)
 Scene.add(Game2::Director.new(input), :game2)

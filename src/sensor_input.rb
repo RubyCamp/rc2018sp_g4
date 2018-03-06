@@ -32,4 +32,20 @@ class Controller
     def get_light
         return @board.analog_read(1)
     end
+
+    def get_input
+        if (@board.digital_read(5) | @board.digital_read(6)) != 0 then
+            return true
+        else
+            return false
+        end
+    end
+
+    def secret_input
+        if @board.digital_read(5) == 1 &&  @board.digital_read(6) == 1 then
+            return true
+        else
+            return false
+        end
+    end
 end
