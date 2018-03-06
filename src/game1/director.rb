@@ -59,4 +59,9 @@ module Game1
 			@frm = 1 if @frm > max_cnt
 		end
 	end
-end
+
+    def clear
+      @frm = 1
+      @dx = 0
+    end
+  end
