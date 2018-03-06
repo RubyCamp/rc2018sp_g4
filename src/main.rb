@@ -31,3 +31,8 @@ Window.loop do
 
   Scene.play
 end
+
+__END__
+ここからコメント
+変更点とか今発見された問題を書いてください
+
