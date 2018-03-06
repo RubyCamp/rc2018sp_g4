@@ -12,6 +12,8 @@ module Game
       @input = input
       @frm = 1
       @scene_flag = 0;
+      @menu_hash = {0=>150, 1=>200, 2=>250, 3=>300, 4=>350}
+      @s_hash = {0=>:game1, 1=>:game2, 2=>:game3, 3=>:game4, 4=>:game5}
     end
 
     def play
@@ -27,12 +29,8 @@ module Game
 
       @scene_flag += @input.get_sw1 if @frm == 1
       @scene_flag %= 5
-      @y = 150 if @scene_flag == 0
-      @y = 200 if @scene_flag == 1
-      @y = 250 if @scene_flag == 2
-      @y = 300 if @scene_flag == 3
-      @y = 350 if @scene_flag == 4
-      
+      @y = @menu_hash[@scene_flag]      
+      Scene.move_to(@s_hash[@scene_flag]) if @input.get_sw2 == 1
     end
 
     def change_scene        

@@ -9,7 +9,7 @@
     def play
       Window.draw_font(250, 280, "タイトル画面", @font)
       Window.draw_line(230, 330, 460, 330, C_WHITE)
-      Scene.move_to(:game) if @input.secret_input
+      Scene.move_to(:game) if @input.get_input
     end
   end
 end
