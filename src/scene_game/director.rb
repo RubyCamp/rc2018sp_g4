@@ -30,7 +30,7 @@ module Game
       @scene_flag += @input.get_sw1 if @frm == 1
       @scene_flag %= 5
       @y = @menu_hash[@scene_flag]      
-      Scene.move_to(@s_hash[@scene_flag]) if @input.get_sw2 == 1
+      Scene.move_to(@s_hash[@scene_flag]) if @input.get_sw2 == 1 && @frm == 1
     end
 
     def change_scene        
