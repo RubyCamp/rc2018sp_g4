@@ -1,21 +1,14 @@
-require_relative 'player'
+require_relative 'lance'
+require_relative 'volume'
 
-#�����Q�[��
 module Game1
 	class Director
-<<<<<<< HEAD
 		SCORE = [30, 20, 10, 0]
 		RANGE = [10, 30, 50]
 
 		def initialize(input)
 			@input = input
-			@player = Player.new(input)
-			p @player
-=======
-		def initialize(input, score)
-			@input = input
-			@player = Player.new
->>>>>>> 1740f5f0c62f7f1334baa1761724f8aefe1a3939
+			@lance = Lance.new(input)
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
@@ -37,17 +30,17 @@ module Game1
 					end
 				when 1 #set rad
 					Window.draw_font(250, 280, "Push Button!!\n#{@degree}", @font)
-					@player.draw_lance(-@degree)
+					@lance.draw_lance(-@degree)
 					if @input.get_sw2 == 0
 						@degree += 1
 						@degree = 0 if @degree == 91
 					else
-						@player.rad = @degree * Math::PI / 180
+						@lance.rad = @degree * Math::PI / 180
 						@step += 1
 					end
 				when 2 #set initialize speed
 					Window.draw_font(250, 280, "Shout!!\nPower: #{@max_power}", @font)
-					@player.draw_lance(-@degree)
+					@lance.draw_lance(-@degree)
 					Window.draw_font(10, 550, "|" * (@input.get_sound / 10), @font)
 					if @cnt < 30
 						if frm_count(6) == 1
@@ -56,29 +49,25 @@ module Game1
 							@max_power = power if @max_power < power
 						end
 					else
-<<<<<<< HEAD
-						@player.speed = @max_power / 10
-						p @player
-=======
-						@player.speed = @max_power
->>>>>>> 1740f5f0c62f7f1334baa1761724f8aefe1a3939
+						@lance.speed = @max_power / 10
+						p @lance
 						@step += 1
 					end
 				when 3 #shot
 					Window.draw_font(250,280, "Go!!\nx: y: ", @font)
-					@player
-					@player.draw
-					@step += 1 if @player.y >= 500
+					@lance
+					@lance.draw
+					@step += 1 if @lance.y >= 500
 				when 4
-					Window.draw_font(250, 280, "Score: #{(@player.x - 10).to_i}", @font)
-					@player.draw_lance(@degree)
+					Window.draw_font(250, 280, "Score: #{(@lance.x - 10).to_i}", @font)
+					@lance.draw_lance(@degree)
 			end
 
     	end
 
 		def get_score
 			center_position = 400
-			hit_position = @player.x
+			hit_position = @lance.x
 
 		end
 		def frm_count(max_cnt)
