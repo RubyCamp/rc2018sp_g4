@@ -1,5 +1,6 @@
 require_relative 'lance'
 require_relative 'volume'
+require_relative 'score.rb'
 
 module Game1
 	class Director
