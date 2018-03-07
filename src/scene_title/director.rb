@@ -2,22 +2,23 @@
   class Director
     def initialize(input)
       @input = input
-      @frm = 0
-      @color = [C_BLACK, C_RED,C_GREEN, C_BLUE, C_YELLOW, C_CYAN, C_MAGENTA, C_WHITE]
-      @temp = 1;
       @logo = Image.load('images/log.png')
+      @color = [C_BLACK, C_RED,C_GREEN, C_BLUE, C_YELLOW, C_CYAN, C_MAGENTA, C_WHITE]
+      @temp = 1
+      @frm = 0
     end
 
     #実行するゲームを選択して分岐するゲームはgame1, game2, game3, game4, game5
     def play
+      self.display 
+      Window.draw(300, 150, @logo)
       @frm += 1
       @frm = 0 if @frm > 50
-      self.display 
       @temp += @temp % 3 if @frm == 1
-      Window.draw(300, 150, @logo)
       Scene.move_to(:game) if @input.get_input
     end
 
+    #背景を描く
     def display
       x = 800 / 20
       y = 600 / 20

@@ -11,8 +11,11 @@ require_relative 'game5/director'
 require_relative 'sensor_input'
 require_relative 'player_score'
 
+<<<<<<< HEAD
 sound = Sound.new("game4/music/1UP.wav")
 
+=======
+>>>>>>> 2d77b3520ae9cf5b95fa562d3fdd3a67aae49558
 Window.width = 800
 Window.height = 600
 
@@ -23,14 +26,17 @@ player2 = Player_score.new
 
 Scene.add(Title::Director.new(input), :title)
 Scene.add(Game::Director.new(input), :game)
+<<<<<<< HEAD
 Scene.add(Game1::Director.new(input), :game1)
+=======
+#Scene.add(Game1::Director.new(input), :game1)
+>>>>>>> 2d77b3520ae9cf5b95fa562d3fdd3a67aae49558
 Scene.add(Game2::Director.new(input, player1), :game2)
 Scene.add(Game3::Director.new(input, player1), :game3)
 Scene.add(Game4::Director.new(input, player1), :game4)
 Scene.add(Game5::Director.new(input, player1), :game5)
 
 Scene.move_to(:title)
-
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
   Scene.play
@@ -39,3 +45,4 @@ end
 __END__
 ここからコメント
 変更点とか今発見された問題を書いてください
+f

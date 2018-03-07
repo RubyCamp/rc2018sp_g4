@@ -28,7 +28,6 @@ module Game4
       @sound2 = Sound.new("game4/music/coin.wav")
       @sound3 = Sound.new("game4/music/1UP.wav")
       @sound4 = Sound.new("game4/music/mario_die.wav")
-    #  @sound1 = Sound.new("1UP.wav")
       @score = score
     end
     #def set_sounds
@@ -52,14 +51,14 @@ module Game4
       @db2 = @input.get_sw2
       @al = @input.get_light
       puts(@al)
-      Window.draw_font(240, 50, "10秒で止めろ!", @font)
-      if @input.get_sw2 ==1 && @@current_frame %20 == 0
+      Window.draw_font(240, 50, "20秒で止めろ!", @font)
+      if @db2 ==1  && @@current_frame %120 == 0
         @start = true
       end
 
       if @start
-        if @@current_frame %30 == 0
-          if @al <= 400
+        if @@current_frame % 10 ==0
+          if @al <= 200
             puts("aaaaaa")
             if @music % 4 ==0
               @sound1.play
@@ -78,11 +77,10 @@ module Game4
         end
 
         if @db2 == 1
-          #puts(@al)
           if @db == 0 && !@stop
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-            @@current_frame += 1
+            @@current_frame += 2.5
             @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
           elsif @db == 1
             set_fields
@@ -101,7 +99,7 @@ module Game4
         else
           if @db == 0 && !@stop
 
-            @@current_frame += 1
+            @@current_frame += 2.5
             @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
           elsif @db == 1
 
@@ -122,7 +120,6 @@ module Game4
         @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
       end
     end
-
     def clear
       @stop = false
       @dx = 0
@@ -130,6 +127,5 @@ module Game4
       @db2 = 0
       @@current_frame =0
     end
-
   end
 end
