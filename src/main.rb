@@ -9,13 +9,10 @@ require_relative 'game3/director'
 require_relative 'game4/director'
 require_relative 'game5/director'
 require_relative 'sensor_input'
-<<<<<<< HEAD
+require_relative 'player_score'
 
 sound = Sound.new("game4/music/1UP.wav")
 
-=======
-require_relative 'player_score'
->>>>>>> d850a8a890ef0fa1684df51c5eecfcafb7598106
 Window.width = 800
 Window.height = 600
 

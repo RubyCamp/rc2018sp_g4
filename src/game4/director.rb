@@ -21,7 +21,6 @@ module Game4
       @dx = 0
       @db = 0
       @db2 = 0
-<<<<<<< HEAD
       @al = 0
       @music =0
       @font = Font.new(64, 'ＭＳ Ｐゴシック')
@@ -30,9 +29,7 @@ module Game4
       @sound3 = Sound.new("game4/music/1UP.wav")
       @sound4 = Sound.new("game4/music/mario_die.wav")
     #  @sound1 = Sound.new("1UP.wav")
-=======
       @score = score
->>>>>>> d850a8a890ef0fa1684df51c5eecfcafb7598106
     end
     #def set_sounds
     #  @sound1 = Sound.new("1UP.wav")
