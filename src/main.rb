@@ -30,7 +30,6 @@ Scene.move_to(:title)
 
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
-
   Scene.play
 end
 

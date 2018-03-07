@@ -3,10 +3,10 @@ module Game3
     attr_accessor :x
 
    def initialize
-     @image = Image.load('images/player.png')
+      @image = Image.load('images/player.png')
       @image.set_color_key(C_BLACK)
       @x = 400
-     @y = 300
+      @y = 300
     end
 
     def draw

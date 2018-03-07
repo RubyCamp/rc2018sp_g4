@@ -65,7 +65,7 @@ module Game1
 	end
 
     def clear
-      @frm = 1
-      @dx = 0
+    	@frm = 1
+    	@dx = 0
     end
   end

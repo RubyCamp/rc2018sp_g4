@@ -12,7 +12,7 @@ module Game4
     MIN_TO_SEC = 60 # 1min => 60[sec]
     SEC_TO_FRAME = 60 # 1sec => 60[frame]
     MAXIM_FRAME_NUM = 10 * MIN_TO_SEC * SEC_TO_FRAME # 10[min]が描画最大範囲
-      @@current_frame =0
+    @@current_frame =0
     def initialize(input, score)
       @input = input
       #@player = Player.new
