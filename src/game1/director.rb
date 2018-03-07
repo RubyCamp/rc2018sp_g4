@@ -1,6 +1,6 @@
 require_relative 'player'
 
-#“Š±ƒQ[ƒ€
+#ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½
 module Game1
 	class Director
 		def initialize(input)
@@ -45,12 +45,7 @@ module Game1
 							@max_power = power if @max_power < power
 						end
 					else
-<<<<<<< HEAD
-						@player.speed = @max_power / 10
-						p @player
-=======
 						@player.speed = @max_power
->>>>>>> 35821e96ab8341988c357c41db371f6265ddd200
 						@step += 1
 					end
 				when 3 #shot
