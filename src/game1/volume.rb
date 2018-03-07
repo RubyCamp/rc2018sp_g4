@@ -1,9 +1,9 @@
-module Gmame1
+module Game1
 	class Volume
 		attr_accessor :vol
 		attr_accessor :max_vol
 		def initialize(input)
-			@mic = input
+			@input = input
 			@vol = 0
 			@max_vol = 0
 			@x = 10
@@ -17,7 +17,9 @@ module Gmame1
 		end
 
 		def draw_vol
-			str = "MIN" + "|" * @vol + " " * (100 - @vol) + "MAX"
+				  lv = "|" * @vol
+				  #space = " " * (100 - @vol)
+				  str = "MIN" + lv  + "MAX"
 			Window.draw_font(@x, @y, str, @font)
 		end
 	end

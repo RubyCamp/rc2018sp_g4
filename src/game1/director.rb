@@ -1,6 +1,6 @@
 require_relative 'lance'
 require_relative 'volume'
-require_relative 'score.rb'
+require_relative 'score'
 
 module Game1
 	class Director
@@ -14,8 +14,11 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
+<<<<<<< HEAD
+
+=======
 			
-			@score = score
+>>>>>>> 7e7a32ba38897161300b01eeff3ad9f70b3c26bb
 		end
 
 		def draw_msg(msg)
@@ -32,7 +35,7 @@ module Game1
 		end
 
 		def draw_degree_setting
-			@lance.ch_degree(degree)
+			@lance.ch_degree(-@degree)
 			self.draw_msg("Push Button\n#{@lance.degree}degree")
 			@lance.draw
 
@@ -61,6 +64,12 @@ module Game1
 			end
 		end
 
+		def draw_shot
+			@lance.set_next_posiotion
+			@lance.draw
+			@step += 1 if @lance.hit?
+		end
+
     	def play
 			case @step
 				when 0
@@ -70,11 +79,10 @@ module Game1
 				when 2 #set initialize speed
 					self.draw_speed_setting
 				when 3 #shot
-					@lance.draw
-					@step += 1 if @lance.y >= 500
+					self.draw_speed_shot
 				when 4
-					Window.draw_font(250, 280, "Score: #{(@lance.x - 10).to_i}", @font)
-					@lance.draw_lance(@degree)
+						  Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x)}", @font)
+					@lance.draw
 			end
 
     	end

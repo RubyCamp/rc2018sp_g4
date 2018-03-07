@@ -26,6 +26,11 @@ module Game1
 			@time = 0
 		end
 
+		def ch_degree(degree)
+			@degree = degree
+			@rad = @degree * Math::PI / 180
+		end
+
 		def set_next_posiotion
 			@time += 1.0 / 60.0
 			@dx = @x
@@ -38,6 +43,14 @@ module Game1
 
 		def ch_power
 			return power = @input.get_light / 100 - 5
+		end
+		
+		def hit?
+			if @x < 500
+				return true
+			else
+				return false
+			end
 		end
 
 		def draw
