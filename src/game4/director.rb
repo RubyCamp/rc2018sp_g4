@@ -12,14 +12,15 @@ module Game4
     MIN_TO_SEC = 60 # 1min => 60[sec]
     SEC_TO_FRAME = 60 # 1sec => 60[frame]
     MAXIM_FRAME_NUM = 10 * MIN_TO_SEC * SEC_TO_FRAME # 10[min]が描画最大範囲
-      @@current_frame =0
-    def initialize(input)
+    @@current_frame =0
+    def initialize(input, score)
       @input = input
       #@player = Player.new
       @flg = 0
       @dx = 0
       @db = 0
       @db2 = 0
+      @score = score
     end
 
     def set_fields
@@ -63,11 +64,11 @@ module Game4
 
         if @flg == 1
           set_fields
-          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-          if @input.get_input then
-            self.clear
-            Scene.move_to(:game)
-          end
+          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)           
+          self.clear
+          Scene.add(Score::Director.new(@input,@@current_frame), :score)
+          Scene.move_to(:score)
+          Scene.play
         end
       end
     end

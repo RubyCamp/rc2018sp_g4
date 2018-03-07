@@ -3,9 +3,10 @@ require 'smalrubot'
 
 module Game5
   class Director
-    def initialize(input)
+    def initialize(input, score)
       @input = input
       @frm = 1
+      @score = score
 
       @gu = Image.load('images/gu.png')
       @cho = Image.load('images/cho.png')

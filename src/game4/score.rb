@@ -39,7 +39,10 @@ module Score
       end
       Window.draw_font(350, 280, @score.to_s, @font)
       Window.draw_font(440, 280, "点", @font)
-      sleep(2)
+
+      if @input.get_input then
+        Scene.move_to(:game)
+      end
 
 
     end
