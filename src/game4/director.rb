@@ -53,8 +53,10 @@ module Game4
       @al = @input.get_light
       puts(@al)
       Window.draw_font(240, 50, "10秒で止めろ!", @font)
-      if @input.get_sw2 ==1 && @@current_frame %20 == 0
+      if @db2 ==1  && @@current_frame %120 == 0
         @start = true
+
+
       end
 
       if @start
@@ -78,11 +80,10 @@ module Game4
         end
 
         if @db2 == 1
-          #puts(@al)
           if @db == 0 && !@stop
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-            @@current_frame += 1
+            @@current_frame += 2.45
             @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
           elsif @db == 1
             set_fields
@@ -101,7 +102,7 @@ module Game4
         else
           if @db == 0 && !@stop
 
-            @@current_frame += 1
+            @@current_frame += 2.45
             @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
           elsif @db == 1
 
@@ -122,7 +123,6 @@ module Game4
         @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
       end
     end
-
     def clear
       @stop = false
       @dx = 0
@@ -130,6 +130,5 @@ module Game4
       @db2 = 0
       @@current_frame =0
     end
-
   end
 end
