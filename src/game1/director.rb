@@ -6,6 +6,7 @@ module Game1
 		def initialize(input)
 			@input = input
 			@player = Player.new
+			p @player
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
@@ -30,7 +31,7 @@ module Game1
 						@degree += 1
 						@degree = 0 if @degree == 91
 					else
-						@player.rad = @degree * Math::PI / 180.0
+						@player.rad = @degree * Math::PI / 180
 						@step += 1
 					end
 				when 2 #set initialize speed
@@ -40,16 +41,21 @@ module Game1
 					if @cnt < 30
 						if frm_count(6) == 1
 							@cnt += 1
-							power = @input.get_sound
+							power = @input.get_sound / 20
 							@max_power = power if @max_power < power
 						end
 					else
+<<<<<<< HEAD
 						@player.speed = @max_power / 10
 						p @player
+=======
+						@player.speed = @max_power
+>>>>>>> 35821e96ab8341988c357c41db371f6265ddd200
 						@step += 1
 					end
 				when 3 #shot
-					Window.draw_font(250,280, "Go!!\nx: #{@player.x.to_i}y: #{@player.y.to_i}", @font)
+					Window.draw_font(250,280, "Go!!\nx: y: ", @font)
+					@player
 					@player.draw
 					return @player.x if @player.y <= 0.0
 			end
@@ -62,8 +68,8 @@ module Game1
 		end
 	end
 
-	def clear
-		@frm = 1
-		@dx = 0
-	end
-end
+    def clear
+      @frm = 1
+      @dx = 0
+    end
+  end
