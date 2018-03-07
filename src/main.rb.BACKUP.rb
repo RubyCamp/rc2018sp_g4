@@ -35,5 +35,10 @@ end
 __END__
 ここからコメント
 変更点とか今発見された問題を書いてください
+<<<<<<< HEAD
+fdsfdsf
+sada
+=======
 ds
 sada
+>>>>>>> c553d9dfea7cc7aa7d988ba3f0ee2e81d660b4f5
