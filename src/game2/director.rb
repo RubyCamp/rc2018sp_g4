@@ -9,7 +9,6 @@ module Game2
       @player = Player.new
       @frm = 1
 
-
       @bar = Image.load('images/bar.png')
       @hako = Image.load('images/hako.png')
       @end = Image.load('images/gameover.png')
@@ -22,6 +21,7 @@ module Game2
       @start=0
       @count=0
       @mod = 1
+      @title = 0
       @c = 0
       @cs = 0
       @s = 0
@@ -29,11 +29,9 @@ module Game2
       @d=0
       @font = Font.new(50, font_name="ＭＳ Ｐゴシック")
       @font2 = Font.new(100, font_name="ＭＳ Ｐゴシック")
-      print "test"
     end
 
     def play
-      print "test"
       @frm += 1
       @frm = 0 if @frm > 30
 
@@ -63,8 +61,8 @@ module Game2
           Window.draw_rot(0, 300, @bar, @ran, 401, 0)
           Window.draw_rot(@iti, 200, @hako, @ran, @aiti, 101)
           Window.draw(249, 265, @huji)
-          @an += l if @d==0
-          @an -= l if @d==1
+          @an += @l if @d==0
+          @an -= @l if @d==1
           @ran = @an / 60
           @iti += @ran / 3
           @aiti -= @ran / 3
@@ -116,5 +114,6 @@ module Game2
     def clear
       @frm = 1
     end
+
   end
 end
