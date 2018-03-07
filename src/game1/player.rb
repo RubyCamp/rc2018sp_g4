@@ -1,14 +1,16 @@
 module Game1
 	class Player
-	  attr_accessor :x
-	  attr_accessor :y
-	  attr_accessor :speed
-	  attr_accessor :rad
+	  	attr_accessor :x
+	  	attr_accessor :y
+	  	attr_accessor :speed
+		attr_accessor :rad
 
 	  GRAVITY = 9.8
  	 	def initialize
 	 	  @image = Image.load('images/player.png')
 			@image.set_color_key(C_BLACK)
+			@image_width = 30
+			@image_height = 5
 			@x = 10
 			@y = 10
 			@speed = 0

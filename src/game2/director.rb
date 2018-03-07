@@ -3,7 +3,8 @@ require 'smalrubot'
 
 module Game2
   class Director
-    def initialize(input)
+    def initialize(input, score)
+      @score = score
       @input = input
       @player = Player.new
       @frm = 1

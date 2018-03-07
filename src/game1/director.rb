@@ -1,18 +1,19 @@
 require_relative 'player'
 
-#“Š±ƒQ[ƒ€
+#ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½
 module Game1
 	class Director
-		def initialize(input)
+		def initialize(input, score)
 			@input = input
 			@player = Player.new
-			p @player
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
+			
+			@score = score
 		end
 
     	def play
@@ -26,6 +27,7 @@ module Game1
 					end
 				when 1 #set rad
 					Window.draw_font(250, 280, "Push Button!!\n#{@degree}", @font)
+					@player.draw_lance(-@degree)
 					if @input.get_sw2 == 0
 						@degree += 1
 						@degree = 0 if @degree == 91
@@ -35,6 +37,8 @@ module Game1
 					end
 				when 2 #set initialize speed
 					Window.draw_font(250, 280, "Shout!!\nPower: #{@max_power}", @font)
+					@player.draw_lance(-@degree)
+					Window.draw_font(10, 550, "|" * (@input.get_sound / 10), @font)
 					if @cnt < 30
 						if frm_count(6) == 1
 							@cnt += 1
@@ -49,7 +53,7 @@ module Game1
 					Window.draw_font(250,280, "Go!!\nx: y: ", @font)
 					@player
 					@player.draw
-					# return @player.x if @player.y <= 0.0
+					return @player.x if @player.y <= 0.0
 			end
 
     	end
@@ -61,7 +65,7 @@ module Game1
 	end
 
     def clear
-      @frm = 1
-      @dx = 0
+    	@frm = 1
+    	@dx = 0
     end
   end
