@@ -1,4 +1,4 @@
-require 'dxruby'
+﻿require 'dxruby'
 require 'smalrubot'
 require_relative 'scene'
 require_relative 'scene_title/director'
@@ -36,3 +36,4 @@ __END__
 ここからコメント
 変更点とか今発見された問題を書いてください
 
+sada
