@@ -3,19 +3,9 @@ require_relative 'player'
 #�����Q�[��
 module Game1
 	class Director
-<<<<<<< HEAD
-		SCORE = [30, 20, 10, 0]
-		RANGE = [10, 30, 50]
-
-		def initialize(input)
-			@input = input
-			@player = Player.new(input)
-			p @player
-=======
 		def initialize(input, score)
 			@input = input
 			@player = Player.new
->>>>>>> 1740f5f0c62f7f1334baa1761724f8aefe1a3939
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
@@ -56,12 +46,7 @@ module Game1
 							@max_power = power if @max_power < power
 						end
 					else
-<<<<<<< HEAD
-						@player.speed = @max_power / 10
-						p @player
-=======
 						@player.speed = @max_power
->>>>>>> 1740f5f0c62f7f1334baa1761724f8aefe1a3939
 						@step += 1
 					end
 				when 3 #shot
@@ -79,8 +64,8 @@ module Game1
 		def get_score
 			center_position = 400
 			hit_position = @player.x
-
 		end
+		
 		def frm_count(max_cnt)
 			@frm += 1
 			@frm = 1 if @frm > max_cnt
