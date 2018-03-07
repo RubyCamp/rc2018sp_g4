@@ -1,4 +1,3 @@
-require_relative 'player'
 require 'smalrubot'
 
 module Game2
@@ -6,7 +5,6 @@ module Game2
     def initialize(input, score)
       @score = score
       @input = input
-      @player = Player.new
       @frm = 1
 
       @bar = Image.load('images/bar.png')
@@ -107,12 +105,32 @@ module Game2
           elsif @s == 2
             Window.draw_font(200, 200,"勝利　プレイヤー２", @font)
           end
+          if @input.get_sw1 == 1 && @frm % 15 == 0 then
+            Scene.move_to(:game)
+            self.clear
+          end
+    
         end
       end          
     end
 
     def clear
       @frm = 1
+      @ran = 0
+      @an = 0
+      @iti = 350
+      @aiti = 51
+
+      @start=0
+      @count=0
+      @mod = 1
+      @title = 0
+      @c = 0
+      @cs = 0
+      @s = 0
+      @l=0
+      @d=0
+
     end
 
   end
