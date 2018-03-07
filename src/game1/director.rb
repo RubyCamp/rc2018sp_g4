@@ -4,12 +4,10 @@ require_relative 'score.rb'
 
 module Game1
 	class Director
-		SCORE = [30, 20, 10, 0]
-		RANGE = [10, 30, 50]
-
 		def initialize(input)
 			@input = input
 			@lance = Lance.new(input)
+			@volume = Volume.new(input)
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
@@ -20,43 +18,58 @@ module Game1
 			@score = score
 		end
 
+		def draw_msg(msg)
+			Window.draw_font(250, 280, msg, @font)
+		end
+
+		def draw_game_title
+			self.draw_msg("Throwing Game")
+			@cnt += 1
+			if @cnt == 120
+				@cnt = 0
+				@step += 1
+			end
+		end
+
+		def draw_degree_setting
+			@lance.ch_degree(degree)
+			self.draw_msg("Push Button\n#{@lance.degree}degree")
+			@lance.draw
+
+			if @input.get_sw2 == 0
+				@degree += 1
+				@degree = 0 if @degree == 91
+			else
+				@lance.degree = @degree
+				@lance.rad = @degree * Math::PI / 180
+				@step += 1
+			end
+		end
+
+		def draw_speed_setting
+			self.draw_msg("Shout!!\nSpeed: #{@volume.vol}")
+			@volume.set_vol
+			@volume.draw_vol
+			@lance.draw
+
+			if @cnt < 180
+				@cnt += 1
+			else
+				@cnt = 0
+				@step += 1
+				@lance.speed = @volume.max_vol
+			end
+		end
+
     	def play
 			case @step
 				when 0
-					Window.draw_font(250, 280, "Throwing Game", @font)
-					@cnt += 1
-					if @cnt == 60
-						@cnt = 0
-						@step += 1
-					end
+					self.draw_game_title
 				when 1 #set rad
-					Window.draw_font(250, 280, "Push Button!!\n#{@degree}", @font)
-					@lance.draw_lance(-@degree)
-					if @input.get_sw2 == 0
-						@degree += 1
-						@degree = 0 if @degree == 91
-					else
-						@lance.rad = @degree * Math::PI / 180
-						@step += 1
-					end
+					self.draw_degree_setting
 				when 2 #set initialize speed
-					Window.draw_font(250, 280, "Shout!!\nPower: #{@max_power}", @font)
-					@lance.draw_lance(-@degree)
-					Window.draw_font(10, 550, "|" * (@input.get_sound / 10), @font)
-					if @cnt < 30
-						if frm_count(6) == 1
-							@cnt += 1
-							power = @input.get_sound 
-							@max_power = power if @max_power < power
-						end
-					else
-						@lance.speed = @max_power / 10
-						p @lance
-						@step += 1
-					end
+					self.draw_speed_setting
 				when 3 #shot
-					Window.draw_font(250,280, "Go!!\nx: y: ", @font)
-					@lance
 					@lance.draw
 					@step += 1 if @lance.y >= 500
 				when 4
@@ -66,11 +79,6 @@ module Game1
 
     	end
 
-		def get_score
-			center_position = 400
-			hit_position = @lance.x
-
-		end
 		def frm_count(max_cnt)
 			@frm += 1
 			@frm = 1 if @frm > max_cnt
