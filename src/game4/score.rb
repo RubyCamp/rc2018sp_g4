@@ -29,15 +29,15 @@ module Score
       @frm = 1 if @frm > 120
 
       if @frm == 5
-        @time = ((10 * SEC_TO_FRAME ) - @current_frame).abs
+        @time = ((20 * SEC_TO_FRAME ) - @current_frame).abs
 
-        if @time <= 6
+        if @time <= 30
           @score = 10
-        elsif @time <= 12
+        elsif @time <= 60
           @score = 7
-        elsif @time <= 18
+        elsif @time <= 90
           @score = 5
-        elsif @time <= 30
+        elsif @time <= 120
           @score = 3
         else
           @score = 0
