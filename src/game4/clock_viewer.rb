@@ -24,7 +24,7 @@ module ClockViewer
       str_width = @width - STR_BRANK_WIDTH * 2
       str_height = @height - STR_BRANK_HEIGHT * 2
 
-      font_size = range_to_font_size(str_width, str_height)+10
+      font_size = range_to_font_size(str_width, str_height)
       str_font = Font.new( font_size )
 
       if font_size == str_height
