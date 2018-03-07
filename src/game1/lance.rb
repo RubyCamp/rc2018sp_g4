@@ -39,6 +39,14 @@ module Game1
 		def ch_power
 			return power = @input.get_light / 100 - 5
 		end
+		
+		def hit?
+			if @x < 500
+				return true
+			else
+				return false
+			end
+		end
 
 		def draw
 			Window.draw_rot(@x, @y, @image, degree, @image.width / 2, @image.height / 2)

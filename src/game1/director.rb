@@ -61,6 +61,12 @@ module Game1
 			end
 		end
 
+		def draw_shot
+			@lance.set_next_posiotion
+			@lance.draw
+			@step += 1 if @lance.hit?
+		end
+
     	def play
 			case @step
 				when 0
@@ -70,11 +76,10 @@ module Game1
 				when 2 #set initialize speed
 					self.draw_speed_setting
 				when 3 #shot
-					@lance.draw
-					@step += 1 if @lance.y >= 500
+					self.draw_speed_shot
 				when 4
-					Window.draw_font(250, 280, "Score: #{(@lance.x - 10).to_i}", @font)
-					@lance.draw_lance(@degree)
+						  Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x)}", @font)
+					@lance.draw
 			end
 
     	end
