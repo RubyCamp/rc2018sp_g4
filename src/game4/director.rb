@@ -66,15 +66,11 @@ module Game4
 
         if @flg == 1
           set_fields
-          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-          if @input.get_input then
-            self.clear
-            #Scene.move_to(:score)
-            #Scene.move_to(:game)
-            Scene.add(Score::Director.new(@input,@@current_frame), :score)
-            Scene.move_to(:score)
-            Scene.play
-          end
+          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)           
+          self.clear
+          Scene.add(Score::Director.new(@input,@@current_frame), :score)
+          Scene.move_to(:score)
+          Scene.play
         end
       end
     end
