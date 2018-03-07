@@ -20,6 +20,7 @@ module Game4
       @dx = 0
       @db = 0
       @db2 = 0
+      @al = 0
     end
 
     def set_fields
@@ -35,7 +36,9 @@ module Game4
     def play
       @db = @input.get_sw1
       @db2 = @input.get_sw2
+      @al = @input.get_light
       if @db2 == 1
+        puts(@al)
         if @db == 0 && @flg ==0
           set_fields
           @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
