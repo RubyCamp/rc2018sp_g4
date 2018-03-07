@@ -26,6 +26,11 @@ module Game1
 			@time = 0
 		end
 
+		def ch_degree(degree)
+			@degree = degree
+			@rad = @degree * Math::PI / 180
+		end
+
 		def set_next_posiotion
 			@time += 1.0 / 60.0
 			@dx = @x
