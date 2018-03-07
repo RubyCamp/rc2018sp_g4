@@ -33,7 +33,6 @@ module Game4
     end
 
     def play
-
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       if @db2 == 1
@@ -51,11 +50,7 @@ module Game4
         if @flg == 1
           set_fields
           @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-          sleep(2)
-          Scene.add(Score::Director.new(@input,@@current_frame), :score)
-          Scene.move_to(:score)
-          Scene.play
-        end
+          end
       else
         if @db == 0 && @flg ==0
 
@@ -69,12 +64,21 @@ module Game4
         if @flg == 1
           set_fields
           @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-          sleep(2)
-          Scene.add(Score::Director.new(@input,@@current_frame), :score)
-          Scene.move_to(:score)
-          Scene.play
+          if @input.get_input then
+            self.clear
+            Scene.move_to(:game)
+          end
         end
       end
     end
+
+    def clear
+      @flg = 0
+      @dx = 0
+      @db = 0
+      @db2 = 0
+      @@current_frame =0
+    end
+
   end
 end
