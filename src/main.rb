@@ -11,6 +11,10 @@ require_relative 'game5/director'
 require_relative 'sensor_input'
 require_relative 'player_score'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e7a32ba38897161300b01eeff3ad9f70b3c26bb
 Window.width = 800
 Window.height = 600
 
@@ -21,14 +25,17 @@ player2 = Player_score.new
 
 Scene.add(Title::Director.new(input), :title)
 Scene.add(Game::Director.new(input), :game)
+<<<<<<< HEAD
 #Scene.add(Game1::Director.new(input), :game1)
+=======
+Scene.add(Game1::Director.new(input), :game1)
+>>>>>>> 7e7a32ba38897161300b01eeff3ad9f70b3c26bb
 Scene.add(Game2::Director.new(input, player1), :game2)
 Scene.add(Game3::Director.new(input, player1), :game3)
 Scene.add(Game4::Director.new(input, player1), :game4)
 Scene.add(Game5::Director.new(input, player1), :game5)
 
 Scene.move_to(:title)
-
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
   Scene.play
