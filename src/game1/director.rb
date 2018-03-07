@@ -14,8 +14,7 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-			
-			@score = score
+
 		end
 
 		def draw_msg(msg)
