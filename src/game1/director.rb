@@ -3,9 +3,12 @@ require_relative 'player'
 #ìäù±ÉQÅ[ÉÄ
 module Game1
 	class Director
+		SCORE = [30, 20, 10, 0]
+		RANGE = [10, 30, 50]
+
 		def initialize(input)
 			@input = input
-			@player = Player.new
+			@player = Player.new(input)
 			p @player
 			@font = Font.new(32, 'Arial')
 			@frm = 1
@@ -41,27 +44,31 @@ module Game1
 					if @cnt < 30
 						if frm_count(6) == 1
 							@cnt += 1
-							power = @input.get_sound / 20
+							power = @input.get_sound 
 							@max_power = power if @max_power < power
 						end
 					else
-<<<<<<< HEAD
 						@player.speed = @max_power / 10
 						p @player
-=======
-						@player.speed = @max_power
->>>>>>> 35821e96ab8341988c357c41db371f6265ddd200
 						@step += 1
 					end
 				when 3 #shot
 					Window.draw_font(250,280, "Go!!\nx: y: ", @font)
 					@player
 					@player.draw
-					return @player.x if @player.y <= 0.0
+					@step += 1 if @player.y >= 500
+				when 4
+					Window.draw_font(250, 280, "Score: #{(@player.x - 10).to_i}", @font)
+					@player.draw_lance(@degree)
 			end
 
     	end
 
+		def get_score
+			center_position = 400
+			hit_position = @player.x
+
+		end
 		def frm_count(max_cnt)
 			@frm += 1
 			@frm = 1 if @frm > max_cnt
