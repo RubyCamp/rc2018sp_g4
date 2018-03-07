@@ -6,7 +6,6 @@ module Game1
 		def initialize(input)
 			@input = input
 			@player = Player.new
-			p @player
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
