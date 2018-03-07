@@ -16,15 +16,32 @@ module Game4
     def initialize(input, score)
       @input = input
       #@player = Player.new
-      @flg = 0
+      @stop = false
+      @start = false
       @dx = 0
       @db = 0
       @db2 = 0
+<<<<<<< HEAD
+      @al = 0
+      @music =0
+      @font = Font.new(64, 'ＭＳ Ｐゴシック')
+      @sound1 = Sound.new("game4/music/jump.wav")
+      @sound2 = Sound.new("game4/music/coin.wav")
+      @sound3 = Sound.new("game4/music/1UP.wav")
+      @sound4 = Sound.new("game4/music/mario_die.wav")
+    #  @sound1 = Sound.new("1UP.wav")
+=======
       @score = score
+>>>>>>> d850a8a890ef0fa1684df51c5eecfcafb7598106
     end
+    #def set_sounds
+    #  @sound1 = Sound.new("1UP.wav")
+
+    #end
 
     def set_fields
-      @clock_image = Image.load("images/clock.png")
+
+      @clock_image = Image.load("images/clock2.png")
       @clock_viewer = ClockViewer::Director.new(
                                       x: Window.width / 2.0 - @clock_image.width / 2.0 ,
                                       y: Window.height / 2.0 - @clock_image.height / 2.0,
@@ -36,45 +53,81 @@ module Game4
     def play
       @db = @input.get_sw1
       @db2 = @input.get_sw2
-      if @db2 == 1
-        if @db == 0 && @flg ==0
-          set_fields
-          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-          @@current_frame += 1
-          @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
-        elsif @db == 1
-          set_fields
-          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
-          @flg = 1
-        end
+      @al = @input.get_light
+      puts(@al)
+      Window.draw_font(240, 50, "10秒で止めろ!", @font)
+      if @input.get_sw2 ==1 && @@current_frame %20 == 0
+        @start = true
+      end
 
-        if @flg == 1
-          set_fields
-          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+      if @start
+        if @@current_frame %30 == 0
+          if @al <= 400
+            puts("aaaaaa")
+            if @music % 4 ==0
+              @sound1.play
+              @music += 1
+            elsif @music % 4 ==1
+              @sound2.play
+              @music += 1
+            elsif @music % 4 ==2
+              @sound3.play
+              @music += 1
+            elsif @music % 4 ==3
+              @sound4.play
+              @music += 1
+            end
           end
-      else
-        if @db == 0 && @flg ==0
-
-          @@current_frame += 1
-          @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
-        elsif @db == 1
-
-          @flg = 1
         end
 
-        if @flg == 1
-          set_fields
-          @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)           
-          self.clear
-          Scene.add(Score::Director.new(@input,@@current_frame), :score)
-          Scene.move_to(:score)
-          Scene.play
+        if @db2 == 1
+          #puts(@al)
+          if @db == 0 && !@stop
+            set_fields
+            @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+            @@current_frame += 1
+            @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
+          elsif @db == 1
+            set_fields
+            @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+            @stop = true
+          end
+
+          if @stop
+            set_fields
+            @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+            Scene.add(Score::Director.new(@input,@@current_frame), :score)
+            Scene.move_to(:score)
+            Scene.play
+            self.clear
+          end
+        else
+          if @db == 0 && !@stop
+
+            @@current_frame += 1
+            @@current_frame = 0 if @@current_frame > MAXIM_FRAME_NUM
+          elsif @db == 1
+
+            @stop = true
+          end
+
+          if @stop
+            set_fields
+            @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+            Scene.add(Score::Director.new(@input,@@current_frame), :score)
+            Scene.move_to(:score)
+            Scene.play
+            self.clear
+          end
         end
+      else  #end
+        set_fields
+        @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
       end
     end
 
     def clear
-      @flg = 0
+      @stop = false
       @dx = 0
       @db = 0
       @db2 = 0
