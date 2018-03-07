@@ -11,7 +11,6 @@ require_relative 'game5/director'
 require_relative 'sensor_input'
 require_relative 'player_score'
 
-
 Window.width = 800
 Window.height = 600
 

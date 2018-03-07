@@ -6,7 +6,6 @@ module Game1
 	class Director
 		def initialize(input)
 			@input = input
-			@player = Player.new
 			@lance = Lance.new(input)
 			@volume = Volume.new(input)
 			@font = Font.new(32, 'Arial')
