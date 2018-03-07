@@ -30,7 +30,8 @@ d=board.digital_read(2)
 @font2 = Font.new(100, font_name="ＭＳ Ｐゴシック")
 
 Window.loop do
-if title == 0
+
+  if title == 0
   Window.draw_font(70, 10,"バランスゲーム", @font2)
   count +=1
   if count == 300
