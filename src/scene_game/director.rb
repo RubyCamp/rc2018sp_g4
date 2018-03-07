@@ -1,12 +1,16 @@
-require_relative 'player'
 require_relative 'output.rb'
+
+#メニュー
+#ここには入力と入力によって画面の制御を行う
+#画面出力はoutputの方で行う
 module Game
   class Director
     def initialize(input)
+      @input = input
       @output = Out.new
+
       @menu_hash = {0=>150, 1=>200, 2=>250, 3=>300, 4=>350}
       @s_hash = {0=>:game1, 1=>:game2, 2=>:game3, 3=>:game4, 4=>:game5}
-      @input = input
       @frm = 1
       @scene_flag = 0;
     end
