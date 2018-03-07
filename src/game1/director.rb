@@ -6,6 +6,7 @@ module Game1
 	class Director
 		def initialize(input)
 			@input = input
+			@player = Player.new
 			@lance = Lance.new(input)
 			@volume = Volume.new(input)
 			@font = Font.new(32, 'Arial')
@@ -14,7 +15,11 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> 960f0ccb3d0834c670ed6d3780d98080faa93de2
 		end
 
 		def draw_msg(msg)
