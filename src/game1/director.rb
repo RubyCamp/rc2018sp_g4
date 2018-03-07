@@ -10,19 +10,13 @@ module Game1
 			@lance = Lance.new(input)
 			@volume = Volume.new(input)
 			@font = Font.new(32, 'Arial')
+			@circle = Image.load('images/circle.png')
 			@frm = 1
 			@step = 0
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-<<<<<<< HEAD
-
-=======
-			
-<<<<<<< HEAD
-=======
->>>>>>> 960f0ccb3d0834c670ed6d3780d98080faa93de2
->>>>>>> 2ae4c4a1a3759310272ac2516e4d4b6119708d21
+			@time = 3.0
 		end
 
 		def draw_msg(msg)
@@ -47,24 +41,26 @@ module Game1
 				@degree += 1
 				@degree = 0 if @degree == 91
 			else
-				@lance.degree = @degree
-				@lance.rad = @degree * Math::PI / 180
+				@lance.degree = -@degree
+				p @lance.rad = @degree * Math::PI / 180
 				@step += 1
 			end
 		end
 
 		def draw_speed_setting
-			self.draw_msg("Shout!!\nSpeed: #{@volume.vol}")
+			self.draw_msg("Shout!!\nSpeed: #{@volume.vol}\n#{@time}")
 			@volume.set_vol
 			@volume.draw_vol
 			@lance.draw
+
+			@time -= 0.1
 
 			if @cnt < 180
 				@cnt += 1
 			else
 				@cnt = 0
 				@step += 1
-				@lance.speed = @volume.max_vol
+				p @lance.speed = @volume.vol / 20
 			end
 		end
 
@@ -75,6 +71,7 @@ module Game1
 		end
 
     	def play
+				  Window.draw(400, 500, @circle)
 			case @step
 				when 0
 					self.draw_game_title
@@ -83,9 +80,9 @@ module Game1
 				when 2 #set initialize speed
 					self.draw_speed_setting
 				when 3 #shot
-					self.draw_speed_shot
+					self.draw_shot
 				when 4
-						  Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x)}", @font)
+					Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x)}", @font)
 					@lance.draw
 			end
 

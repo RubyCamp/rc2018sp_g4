@@ -22,7 +22,7 @@ module Game1
 			@weight = 10
 			@speed = 0
 			@rad = 0
-			@degree
+			@degree = 0
 			@time = 0
 		end
 
@@ -34,11 +34,12 @@ module Game1
 		def set_next_posiotion
 			@time += 1.0 / 60.0
 			@dx = @x
-			@x = (@speed * @time * Math.cos(@rad)) * 8
+			@x = 10 + (@speed * @time * Math.cos(@rad)) * 8
 			@dy = @y
-			@y = (-0.5 * GRAVITY * @time * @time + @speed.to_f * @time * Math.sin(@rad)) * 4
+			@y = 500 - (-0.5 * GRAVITY * @time * @time + @speed.to_f * @time * Math.sin(@rad)) * 4
 			@degree = (Math.atan((@y - @dy) / (@x - @dx))) * 180 / Math::PI
-			@rad = @degree * Math::PI / 180
+
+			puts "x: #{@x} y: #{@y}"
 		end
 
 		def ch_power
@@ -46,7 +47,7 @@ module Game1
 		end
 		
 		def hit?
-			if @x < 500
+			if @y > 500
 				return true
 			else
 				return false
@@ -54,7 +55,7 @@ module Game1
 		end
 
 		def draw
-			Window.draw_rot(@x, @y, @image, degree, @image.width / 2, @image.height / 2)
+			Window.draw_rot(@x, @y, @image, degree, @image.width, @image.height / 2)
   		end
 	end
 end

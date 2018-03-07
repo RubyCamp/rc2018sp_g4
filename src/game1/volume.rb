@@ -17,10 +17,7 @@ module Game1
 		end
 
 		def draw_vol
-				  lv = "|" * @vol
-				  space = " " * (100 - @vol)
-				  str = "MIN" + lv + space + "MAX"
-			Window.draw_font(@x, @y, str, @font)
+			Window.draw_font(@x, @y, "|" * (@vol / 5), @font)
 		end
 	end
 end
