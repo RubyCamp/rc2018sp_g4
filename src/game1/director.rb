@@ -1,6 +1,6 @@
 require_relative 'lance'
 require_relative 'volume'
-require_relative 'score.rb'
+require_relative 'score'
 
 module Game1
 	class Director
@@ -32,7 +32,7 @@ module Game1
 		end
 
 		def draw_degree_setting
-			@lance.ch_degree(degree)
+			@lance.ch_degree(-@degree)
 			self.draw_msg("Push Button\n#{@lance.degree}degree")
 			@lance.draw
 

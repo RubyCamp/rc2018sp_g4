@@ -6,9 +6,7 @@ class Out
         @font = Font.new(32, 'ＭＳ Ｐゴシック')
         @x = 240
         @y = 150  
-  
         @image.set_color_key(C_BLACK)
-
     end
   
     def draw

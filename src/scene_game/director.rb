@@ -12,7 +12,6 @@ module Game
     end
 
     def play
-
       @frm += 1
       @frm = 0 if @frm > 7
       @output.set_y(@menu_hash[@scene_flag])      
