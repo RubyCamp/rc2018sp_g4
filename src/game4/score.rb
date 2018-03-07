@@ -11,19 +11,21 @@ module Score
       @frm = 1
       @time = 0
       @font = Font.new(128, 'ＭＳ Ｐゴシック')
-      @score = 0
+      #@score = 0
     end
 
     def play
       #Window.draw_font(300, 280, @score.to_s"点", @font)
       @frm += 1
-      @frm = 0 if @frm > 30
+      @frm = 1 if @frm > 120
 
 
-      if @frm == 1
-        p @current_frame
+      if @frm == 5
+        #p "bbbb"
+        #p @current_frame
         @time = ((10 * SEC_TO_FRAME ) - @current_frame).abs
-        p @time
+        #p "aaaa"
+        #p  @time
 
         if @time <= 6
           @score = 10
@@ -36,11 +38,13 @@ module Score
         else
           @score = 0
         end
+
       end
-      Window.draw_font(350, 280, @score.to_s, @font)
+      Window.draw_font(320, 280, @score.to_s, @font)
       Window.draw_font(440, 280, "点", @font)
 
-      if @input.get_input then
+
+      if @input.get_sw1 == 1 && @frm % 15 == 0 then
         Scene.move_to(:game)
       end
 
