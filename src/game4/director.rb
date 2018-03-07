@@ -13,13 +13,14 @@ module Game4
     SEC_TO_FRAME = 60 # 1sec => 60[frame]
     MAXIM_FRAME_NUM = 10 * MIN_TO_SEC * SEC_TO_FRAME # 10[min]が描画最大範囲
       @@current_frame =0
-    def initialize(input)
+    def initialize(input, score)
       @input = input
       #@player = Player.new
       @flg = 0
       @dx = 0
       @db = 0
       @db2 = 0
+      @score = score
     end
 
     def set_fields

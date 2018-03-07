@@ -3,7 +3,7 @@ require_relative 'player'
 #�����Q�[��
 module Game1
 	class Director
-		def initialize(input)
+		def initialize(input, score)
 			@input = input
 			@player = Player.new
 			@font = Font.new(32, 'Arial')
@@ -12,6 +12,8 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
+			
+			@score = score
 		end
 
     	def play
