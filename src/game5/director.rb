@@ -194,24 +194,11 @@ module Game5
 
 
       if @bgm[0] == 0
-<<<<<<< HEAD
-
-          @janken_bgm.stop
-          @fini.play if @fin_flg == false
-          @fin_flg = true
-          @bgm[0] = 1
-      end
-    end
-
-
-
-=======
         @fini.play
         @bgm[0] = 1
       end
     end
     
->>>>>>> bf3a3757f32e2761fbb6e53a7882fa63b68509e1
     @c = 600 if Input.key_push?(K_5)
     end
 
