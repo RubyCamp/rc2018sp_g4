@@ -11,6 +11,8 @@ module Game2
       @hako = Image.load('images/hako.png')
       @end = Image.load('images/gameover.png')
       @huji = Image.load('images/019AME5031_TP_V.png')
+      @title_balance = Image.load('images/balance_title.png')
+      @result_img = Image.load('images/winning.png')
 
       @ran = 0
       @an = 0
@@ -42,7 +44,8 @@ module Game2
       @frm = 0 if @frm > 30
 
       if @title == 0
-        Window.draw_font(70, 10,"バランスゲーム", @font2)
+        Window.draw(0,0,@title_balance)
+        Window.draw_font(70, 200,"バランスゲーム", @font2)
 
         @count +=1
         if @count == 300
@@ -121,6 +124,7 @@ module Game2
           @bgm_b.stop
           @win_music.play if @win_flg == false
           @win_flg = true
+          Window.draw(0,0,@result_img)
           if @s == 1
             Window.draw_font(200, 200,"勝利　プレイヤー１", @font)
           elsif @s == 2
@@ -153,6 +157,7 @@ module Game2
       @d=0
       @bgm=0
       @bgm_flg = false
+      @win_flg = false
 
     end
 
