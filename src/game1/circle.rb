@@ -27,5 +27,11 @@ module Game1
 		def draw
 			Window.draw(@x, @y, @circle)
 		end
+
+		def clear
+			@x = 400
+			@y = 500
+			@frm = 0
+		end
 	end
 end

@@ -68,6 +68,7 @@ module Game3
           temp += d4
 
           
+          
           if min > temp
             @mid.set_x(idx_x)
             @mid.set_y(idx_y)

@@ -56,6 +56,23 @@ module Game1
 
 		def draw
 			Window.draw_rot(@x, @y, @image, degree, @image.width, @image.height / 2)
-  		end
+		end
+		
+		def clear
+			@image_width = 30
+			@image_height = 5
+			
+			@x = 10
+			@dx = 10
+			@y = 500
+			@dy = 500
+
+			@weight = 10
+			@speed = 0
+			@rad = 0
+			@degree = 0
+			@time = 0
+		end
+
 	end
 end
