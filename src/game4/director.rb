@@ -23,7 +23,7 @@ module Game4
       @db2 = 0
       @al = 0
       @music =0
-      @bgm_on = false
+      @bgm_on = false #bgmが流れたかどうか　1回流れたらゲーム終了時止める
       @font = Font.new(64, 'ＭＳ Ｐゴシック')
       @sound1 = Sound.new("game4/music/jump.wav")
       @sound2 = Sound.new("game4/music/coin.wav")

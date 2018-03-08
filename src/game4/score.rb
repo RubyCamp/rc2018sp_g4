@@ -13,14 +13,13 @@ module Score
       @current_frame = current_frame
       @frm = 1
       @time = 0
-      @music = false
+      @music = false #1回音が鳴ったどうか
       @font = Font.new(128, 'ＭＳ Ｐゴシック')
       @sound_0 = Sound.new("game4/music/score_0.wav")
       @sound_3 = Sound.new("game4/music/score_3.wav")
       @sound_5= Sound.new("game4/music/score_5.wav")
       @sound_7 = Sound.new("game4/music/score_7.wav")
       @sound_10 = Sound.new("game4/music/score_10.wav")
-
     end
 
     def set_fields
