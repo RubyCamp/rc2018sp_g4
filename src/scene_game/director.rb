@@ -1,3 +1,4 @@
+#Kang
 require_relative 'output.rb'
 
 #メニュー

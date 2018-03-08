@@ -1,3 +1,4 @@
+#Kang
 class Out
     def initialize
         @image = Image.load('images/player.png')

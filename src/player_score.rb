@@ -1,4 +1,5 @@
 #player score menagement
+#Kang
 class Player_score
     def initialize
        @game = [0, 0, 0, 0, 0]

@@ -1,3 +1,4 @@
+#Kang
 require_relative 'player'
 
 module Game3

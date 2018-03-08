@@ -1,3 +1,4 @@
+#Kang
 require 'dxruby'
 require 'smalrubot'
 require_relative 'scene'
