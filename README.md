@@ -13,6 +13,8 @@
 - Yuhei FUJITA
 - Kang InSeob  
 - Akifumi Nomasaki
+- Kohei　Baba
+- Kotaro mashima
 
 ## game list
 
