@@ -35,7 +35,7 @@ module Game1
 
 		def draw_degree_setting
 			@lance.ch_degree(-@degree)
-			self.draw_msg("Push Button\n#{@lance.degree}degree")
+			self.draw_msg("Push Button\n#{-@lance.degree}")
 			@lance.draw
 
 			if @input.get_sw2 == 0
@@ -49,7 +49,7 @@ module Game1
 		end
 
 		def draw_speed_setting
-			self.draw_msg("Shout!!\nSpeed: #{@volume.vol}\n#{@time}")
+				  self.draw_msg("Speed: #{@volume.vol}\n#{@time.to_i}")
 			@volume.set_vol
 			@volume.draw_vol
 			@lance.draw
