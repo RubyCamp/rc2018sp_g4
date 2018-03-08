@@ -16,7 +16,6 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-
 			@time = 3.0
 			@circle_position
 		end
@@ -87,6 +86,10 @@ module Game1
 				when 4
 					Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x, @circle_position)}", @font)
 					@lance.draw
+					if @input.get_input then
+						Scene.move_to(:game)
+						self.clear
+					end
 			end
 
     	end
@@ -95,10 +98,19 @@ module Game1
 			@frm += 1
 			@frm = 1 if @frm > max_cnt
 		end
-	end
 
-    def clear
-    	@frm = 1
-    	@dx = 0
-    end
-  end
+		def clear
+			@frm = 1
+			@step = 0
+			@cnt = 0
+			@max_power = 0
+			@degree = 0
+			@time = 3.0
+			@lance.clear
+			@volume.clear
+			@circle.clear
+
+		end
+
+	end
+end

@@ -9,5 +9,11 @@ module Game1
 			end
 			return 0
 		end
+
+		def clear
+			@@SCORE = [30, 20, 10]
+			@@RANGE = [ 50, 100, 200]	
+		end
+
 	end
 end

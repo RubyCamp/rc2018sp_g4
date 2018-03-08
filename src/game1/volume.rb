@@ -19,5 +19,12 @@ module Game1
 		def draw_vol
 			Window.draw_font(@x, @y, "|" * (@vol / 5), @font)
 		end
+
+		def clear
+			@vol = 0
+			@max_vol = 0
+			@x = 10
+			@y = 550
+		end
 	end
 end
