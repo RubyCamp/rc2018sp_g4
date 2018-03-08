@@ -21,7 +21,7 @@ player2 = Player_score.new
 
 Scene.add(Title::Director.new(input), :title)
 Scene.add(Game::Director.new(input), :game)
-#Scene.add(Game1::Director.new(input), :game1)
+Scene.add(Game1::Director.new(input), :game1)
 Scene.add(Game2::Director.new(input, player1), :game2)
 Scene.add(Game3::Director.new(input, player1), :game3)
 Scene.add(Game4::Director.new(input, player1), :game4)
