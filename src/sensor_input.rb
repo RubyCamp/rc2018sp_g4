@@ -20,7 +20,7 @@ class Controller
 
     #Tilt Sensor
     def get_tilt
-        return @board.analog_read(3)
+        return @board.digital_read(2)
     end
 
     #Sound Sensor
