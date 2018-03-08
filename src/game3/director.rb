@@ -1,6 +1,5 @@
 require_relative 'player'
 
-
 module Game3
   class Director
     def initialize(input, score)
@@ -27,10 +26,6 @@ module Game3
       @dot4.draw
       @mid.draw
 
-      if @input.get_input then
-        Scene.move_to(:game)
-        self.clear
-      end
 
     end
 
