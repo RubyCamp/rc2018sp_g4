@@ -67,8 +67,7 @@ module Game3
           d4 = Math.sqrt(x4 * x4 + y4 * y4)
           temp += d4
 
-          
-          
+                  
           if min > temp
             @mid.set_x(idx_x)
             @mid.set_y(idx_y)
@@ -76,17 +75,10 @@ module Game3
             min = temp
             @dx = idx_x
             @dy = idx_y
-            p min
-            p @dx
-            p @dy
-
           end
+          temp = 0
         end
       end
-
-
     end
-
-
   end
 end
