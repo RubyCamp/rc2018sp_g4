@@ -169,4 +169,7 @@ end
 
 break if Input.key_push?(K_4)
 c = 600 if Input.key_push?(K_5)
+
+
+
 end
