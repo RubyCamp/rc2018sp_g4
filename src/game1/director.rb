@@ -16,8 +16,11 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
+<<<<<<< HEAD
+=======
 			@time = 3.0
 			@circle_position
+>>>>>>> 298a64876afcbdff4cd364aa29205843ebba4a23
 		end
 
 		def draw_msg(msg)

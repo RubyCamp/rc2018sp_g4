@@ -57,7 +57,7 @@ module Game4
       end
 
       if @start
-        if @@current_frame % 10 ==0
+        if @@current_frame % 15 ==0
           if @al <= 200
             puts("aaaaaa")
             if @music % 4 ==0
