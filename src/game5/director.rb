@@ -7,7 +7,6 @@ module Game5
       @input = input
       @frm = 1
       @score = score
-
       @gu = Image.load('images/gu.png')
       @cho = Image.load('images/cho.png')
       @pa = Image.load('images/pa.png')
@@ -57,8 +56,6 @@ module Game5
           @c = 0
         end
       end
-
-
 
       if @sn == 1
 

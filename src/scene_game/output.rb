@@ -3,7 +3,6 @@ class Out
         @image = Image.load('images/player.png')
         @title = Image.load('images/title_mini.png')
         @back1 = Image.load('images/back1.png')
-        @back2 = Image.load('images/back2.png')
         @font = Font.new(32, 'ＭＳ Ｐゴシック')
         @font2 = Font.new(40, 'ＭＳ Ｐゴシック')
         @x = 240
@@ -13,6 +12,7 @@ class Out
     end
 
     def draw
+#        Window.draw_font(300, 150, "Throwing Game", @font,:color=>C_BLACK)
         Window.draw(0,0,@title)
         Window.draw_font(300, 80, "Game menu", @font2)
         Window.draw_font(300, 150, "Throwing Game", @font)
