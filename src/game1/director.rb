@@ -1,6 +1,7 @@
 require_relative 'lance'
 require_relative 'volume'
 require_relative 'score'
+require_relative 'circle'
 
 module Game1
 	class Director
@@ -8,18 +9,15 @@ module Game1
 			@input = input
 			@lance = Lance.new(input)
 			@volume = Volume.new(input)
+			@circle = Circle.new(input)
 			@font = Font.new(32, 'Arial')
-			@circle = Image.load('images/circle.png')
 			@frm = 1
 			@step = 0
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-<<<<<<< HEAD
 			@time = 3.0
-=======
-			
->>>>>>> 2d77b3520ae9cf5b95fa562d3fdd3a67aae49558
+			@circle_position
 		end
 
 		def draw_msg(msg)
@@ -63,7 +61,7 @@ module Game1
 			else
 				@cnt = 0
 				@step += 1
-				p @lance.speed = @volume.vol / 20
+				p @lance.speed = @volume.vol / 10
 			end
 		end
 
@@ -71,10 +69,11 @@ module Game1
 			@lance.set_next_posiotion
 			@lance.draw
 			@step += 1 if @lance.hit?
+			@circle_position = @circle.move_circle
 		end
 
     	def play
-				  Window.draw(400, 500, @circle)
+			@circle.draw	
 			case @step
 				when 0
 					self.draw_game_title
@@ -85,7 +84,7 @@ module Game1
 				when 3 #shot
 					self.draw_shot
 				when 4
-					Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x)}", @font)
+					Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x, @circle_position)}", @font)
 					@lance.draw
 			end
 

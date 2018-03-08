@@ -12,7 +12,7 @@ module Game1
 		end
 
 		def set_vol
-			@vol = @input.get_sound
+			@vol = @input.get_light
 			@max_vol = @vol if @max_vol < @vol
 		end
 
