@@ -68,7 +68,7 @@ module Game4
       end
 
       if @start
-        if @@current_frame % 45 ==0
+        if @@current_frame % 75 ==0
           if @al <= 380
             puts("aaaaaa")
 
