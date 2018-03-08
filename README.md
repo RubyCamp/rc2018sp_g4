@@ -17,5 +17,5 @@
 
 |No|Title|Developer|Sensors|
 |:---|:---:|:---|:---|
-|00|Game body|Kang In Seob|Button, Light, Tilt, Sound|
+|00|Game body|Kang InSeob|Button, Light, Tilt, Sound|
 |01|Trhowing Game|Yuhei FUJITA|Button, Light, Tilt|
