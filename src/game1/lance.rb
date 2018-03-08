@@ -39,7 +39,7 @@ module Game1
 			@y = 500 - (-0.5 * GRAVITY * @time * @time + @speed.to_f * @time * Math.sin(@rad)) * 4
 			@degree = (Math.atan((@y - @dy) / (@x - @dx))) * 180 / Math::PI
 
-			puts "x: #{@x} y: #{@y}"
+			#puts "x: #{@x} y: #{@y}"
 		end
 
 		def ch_power

@@ -26,6 +26,12 @@ module Game3
       @dot3.draw
       @dot4.draw
       @mid.draw
+
+      if @input.get_input then
+        Scene.move_to(:game)
+        self.clear
+      end
+
     end
 
     def clear
@@ -42,9 +48,9 @@ module Game3
       d3 = 0
       d4 = 0
 
-      for idx_x in 0..800 do
+      for idx_x in 50..400 do
         temp = 0
-        for idx_y in 0..600 do
+        for idx_y in 50..500 do
           x1 = (idx_x - @dot1.get_x).abs
           y1 = (idx_y - @dot1.get_y).abs
           d1 = Math.sqrt(x1 * x1 + y1 * y1)
@@ -77,6 +83,7 @@ module Game3
             @dy = idx_y
           end
           temp = 0
+
         end
       end
     end
