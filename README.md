@@ -19,9 +19,9 @@
 ## game list
 
 |No|Title|Developer|Sensors|
-|:---|:---:|:---|:---|
+|:---|:---|:---|:---|
 |00|Game body|Kang InSeob|Button, Light, Tilt, Sound|
-|01|Trhowing Game|Yuhei FUJITA|Button, Light, Tilt|
+|01|Throwing Game|Yuhei FUJITA|Button, Light, Tilt|
 |02|Balance Game|kotaro Mashima Kohei Baba|Light, Tilt|
 |04|Timer Stop Game|Akifumi Nomasaki|Button, Light|
 |05|Janken Game|kotaro Mashima Kohei Baba|Button|
