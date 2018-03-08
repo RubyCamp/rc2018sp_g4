@@ -23,24 +23,20 @@ module Game4
       @db2 = 0
       @al = 0
       @music =0
-      @bgm_on = false
+      @bgm_on = false #bgmが流れたかどうか　1回流れたらゲーム終了時止める
       @font = Font.new(64, 'ＭＳ Ｐゴシック')
-      @sound1 = Sound.new("game4/music/jump.wav")    
+      @sound1 = Sound.new("game4/music/jump.wav")
       @sound2 = Sound.new("game4/music/coin.wav")
       @sound3 = Sound.new("game4/music/1UP.wav")
       @sound4 = Sound.new("game4/music/mario_die.wav")
       @bgm =  Sound.new("game4/music/timer.mid")
-      @sound1.set_volume(180,0)
-      @sound2.set_volume(180,0)
-      @sound3.set_volume(180,0)
-      @sound4.set_volume(180,0)
+      @sound1.set_volume(200,0)
+      @sound2.set_volume(200,0)
+      @sound3.set_volume(200,0)
+      @sound4.set_volume(200,0)
       @bgm.set_volume(255,0)
       @score = score
     end
-    #def set_sounds
-    #  @sound1 = Sound.new("1UP.wav")
-
-    #end
 
     def set_fields
 
@@ -57,20 +53,37 @@ module Game4
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       @al = @input.get_light
+<<<<<<< HEAD
+=======
+
+>>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
       if @bgm_on == false
         @bgm.play
         @bgm_on = true
       end
       puts(@al)
+<<<<<<< HEAD
+=======
+
+      #puts(@al)
+
+>>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
       Window.draw_font(240, 50, "20秒で止めろ!", @font)
       if @db2 ==1  && @@current_frame %120 == 0
         @start = true
       end
 
       if @start
+<<<<<<< HEAD
         if @@current_frame % 30 ==0
           if @al <= 380
             puts("aaaaaa")
+=======
+        if @@current_frame % 45 ==0
+          if @al <= 380
+            puts("aaaaaa")
+
+>>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
             if @music % 4 ==0
               @sound1.play
               @music += 1
@@ -103,6 +116,7 @@ module Game4
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
             @bgm.stop
+            @bgm_on = false
             Scene.add(Score::Director.new(@input,@@current_frame), :score)
             Scene.move_to(:score)
             Scene.play
@@ -122,13 +136,14 @@ module Game4
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
             @bgm.stop
+            @bgm_on = false
             Scene.add(Score::Director.new(@input,@@current_frame), :score)
             Scene.move_to(:score)
             Scene.play
             self.clear
           end
         end
-      else  #end
+      else
         set_fields
         @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
       end
