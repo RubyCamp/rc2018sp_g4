@@ -16,11 +16,9 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-<<<<<<< HEAD
-=======
+
 			@time = 3.0
 			@circle_position
->>>>>>> 298a64876afcbdff4cd364aa29205843ebba4a23
 		end
 
 		def draw_msg(msg)
@@ -76,7 +74,7 @@ module Game1
 		end
 
     	def play
-			@circle.draw	
+			@circle.draw
 			case @step
 				when 0
 					self.draw_game_title
