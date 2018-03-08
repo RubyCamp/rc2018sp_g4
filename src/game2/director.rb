@@ -53,7 +53,7 @@ module Game2
         @start +=1
 
         if @count==25
-           @count=0
+          @count=0
           @d= @input.get_tilt
           @l= @input.get_light
         end

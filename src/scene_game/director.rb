@@ -51,6 +51,8 @@ module Game
     def clear
       @scene_flag = 0;
       @frm = 0;
+      @bgm_on = false
+
     end
   end
 end
