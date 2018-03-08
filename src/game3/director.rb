@@ -13,19 +13,20 @@ module Game3
       @frm = 1
       @dx = 0
       @dy = 0
+      @end = Image.load('images/end.png')
+
       self.calc
     end
 
     def play
       @frm += 1
-      @frm = 0 if @frm > 30
-
+      Window.draw(0, 0, @end)
       #@dot1.draw
       #@dot2.draw
       #@dot3.draw
       #@dot4.draw
       #@mid.draw
-      exit
+      exit if @frm > 300
     end
 
     def clear

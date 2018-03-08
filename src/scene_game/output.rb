@@ -2,7 +2,6 @@ class Out
     def initialize
         @image = Image.load('images/player.png')
         @back1 = Image.load('images/back1.png')
-        @back2 = Image.load('images/back2.png')
         @font = Font.new(32, 'ＭＳ Ｐゴシック')
         @x = 240
         @y = 150
@@ -11,6 +10,7 @@ class Out
     end
 
     def draw
+#        Window.draw_font(300, 150, "Throwing Game", @font,:color=>C_BLACK)
         Window.draw_font(300, 150, "Throwing Game", @font)
         Window.draw_font(300, 200, "Balance Game", @font)
         Window.draw_font(300, 250, "Timer Stop Game", @font)
