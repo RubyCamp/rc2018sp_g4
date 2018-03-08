@@ -23,7 +23,7 @@ module Game4
       @db2 = 0
       @al = 0
       @music =0
-      @bgm_on = false
+      @bgm_on = false #bgmが流れたかどうか　1回流れたらゲーム終了時止める
       @font = Font.new(64, 'ＭＳ Ｐゴシック')
       @sound1 = Sound.new("game4/music/jump.wav")
       @sound2 = Sound.new("game4/music/coin.wav")
@@ -53,25 +53,37 @@ module Game4
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       @al = @input.get_light
+<<<<<<< HEAD
+=======
 
+>>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
       if @bgm_on == false
         @bgm.play
         @bgm_on = true
       end
       puts(@al)
+<<<<<<< HEAD
+=======
 
       #puts(@al)
 
+>>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
       Window.draw_font(240, 50, "20秒で止めろ!", @font)
       if @db2 ==1  && @@current_frame %120 == 0
         @start = true
       end
 
       if @start
+<<<<<<< HEAD
+        if @@current_frame % 30 ==0
+          if @al <= 380
+            puts("aaaaaa")
+=======
         if @@current_frame % 45 ==0
           if @al <= 380
             puts("aaaaaa")
 
+>>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
             if @music % 4 ==0
               @sound1.play
               @music += 1
