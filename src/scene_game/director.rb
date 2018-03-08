@@ -14,7 +14,7 @@ module Game
       @frm = 1
       @scene_flag = 0;
       @menu_bgm = Sound.new("menu_music/menu_bgm.wav")
-      @menu_bgm.set_volume(180,0)
+      @menu_bgm.set_volume(190,0)
       @menu_select = Sound.new("menu_music/select.wav")
       @menu_define = Sound.new("menu_music/menu_define.wav")
       @bgm_on = false
