@@ -43,7 +43,7 @@ module Game1
 				@degree = 0 if @degree == 91
 			else
 				@lance.degree = -@degree
-				p @lance.rad = @degree * Math::PI / 180
+				@lance.rad = @degree * Math::PI / 180
 				@step += 1
 			end
 		end
@@ -61,7 +61,7 @@ module Game1
 			else
 				@cnt = 0
 				@step += 1
-				p @lance.speed = @volume.vol / 10
+				@lance.speed = @volume.vol / 10
 			end
 		end
 
