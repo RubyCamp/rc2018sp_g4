@@ -12,6 +12,7 @@
 ## member  
 - Yuhei FUJITA
 - Kang InSeob  
+- Akifumi Nomasaki
 
 ## game list
 
@@ -19,3 +20,4 @@
 |:---|:---:|:---|:---|
 |00|Game body|Kang InSeob|Button, Light, Tilt, Sound|
 |01|Trhowing Game|Yuhei FUJITA|Button, Light, Tilt|
+|04|Timer Stop Game|Akifumi Nomasaki|Button, Light|
