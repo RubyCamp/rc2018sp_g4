@@ -8,6 +8,11 @@ module Game5
       @frm = 1
       @score = score
 
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> bf3a3757f32e2761fbb6e53a7882fa63b68509e1
       @gu = Image.load('images/gu.png')
       @cho = Image.load('images/cho.png')
       @pa = Image.load('images/pa.png')
@@ -31,7 +36,10 @@ module Game5
       @taiko = Sound.new('game5/sound/ジャンケン321.wav')
       @taiko.set_volume(255)
       @fini = Sound.new('game5/sound/勝負あり.wav')
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf3a3757f32e2761fbb6e53a7882fa63b68509e1
       @bgm_on = false
       @fin_flg = false
       @janken_bgm = Sound.new('game5/sound/janken.wav')
@@ -113,7 +121,11 @@ module Game5
         if @v2 == 1
           Window.draw_font(600, 50,"リーチ！", @font)
         end
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> bf3a3757f32e2761fbb6e53a7882fa63b68509e1
         @c += 1
         @s = @c / 60
 
@@ -182,6 +194,7 @@ module Game5
 
 
       if @bgm[0] == 0
+<<<<<<< HEAD
 
           @janken_bgm.stop
           @fini.play if @fin_flg == false
@@ -192,6 +205,13 @@ module Game5
 
 
 
+=======
+        @fini.play
+        @bgm[0] = 1
+      end
+    end
+    
+>>>>>>> bf3a3757f32e2761fbb6e53a7882fa63b68509e1
     @c = 600 if Input.key_push?(K_5)
     end
 

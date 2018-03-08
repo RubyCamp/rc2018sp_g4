@@ -10,7 +10,7 @@ module Game
       @output = Out.new
 
       @menu_hash = {0=>150, 1=>200, 2=>250, 3=>300, 4=>350}
-      @s_hash = {0=>:game1, 1=>:game2, 2=>:game3, 3=>:game4, 4=>:game5}
+      @s_hash = {0=>:game1, 1=>:game2, 2=>:game4, 3=>:game5, 4=>:game3}
       @frm = 1
       @scene_flag = 0;
       @menu_bgm = Sound.new("menu_music/menu_bgm.wav")

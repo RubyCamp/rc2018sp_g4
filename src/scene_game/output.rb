@@ -15,7 +15,7 @@ class Out
         Window.draw_font(300, 200, "ゲーム2", @font)
         Window.draw_font(300, 250, "ゲーム3", @font)
         Window.draw_font(300, 300, "ゲーム4", @font)
-        Window.draw_font(300, 350, "ゲーム5", @font)
+        Window.draw_font(300, 350, "終了", @font)
         Window.draw(@x, @y, @image)
     end
 
