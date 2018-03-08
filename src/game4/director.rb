@@ -50,7 +50,7 @@ module Game4
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       @al = @input.get_light
-      puts(@al)
+      #puts(@al)
       Window.draw_font(240, 50, "20秒で止めろ!", @font)
       if @db2 ==1  && @@current_frame %120 == 0
         @start = true
@@ -59,7 +59,7 @@ module Game4
       if @start
         if @@current_frame % 15 ==0
           if @al <= 200
-            puts("aaaaaa")
+            #puts("aaaaaa")
             if @music % 4 ==0
               @sound1.play
               @music += 1

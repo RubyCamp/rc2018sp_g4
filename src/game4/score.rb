@@ -13,6 +13,7 @@ module Score
       @current_frame = current_frame
       @frm = 1
       @time = 0
+      @music = false
       @font = Font.new(128, 'ＭＳ Ｐゴシック')
       @sound_0 = Sound.new("game4/music/score_0.wav")
       @sound_3 = Sound.new("game4/music/score_3.wav")
@@ -41,19 +42,24 @@ module Score
         @time = ((20 * SEC_TO_FRAME ) - @current_frame).abs
 
         if @time <= 30
-          @sound_10.play
+          @sound_10.play if !@music
+          @music = true
           @score = 10
         elsif @time <= 60
-          @sound_7.play
+          @sound_7.play if !@music
+          @music = true
           @score = 7
         elsif @time <= 90
-          @sound_5.play
+          @sound_5.play if !@music
+          @music = true
           @score = 5
         elsif @time <= 120
-          @sound_3.play
+          @sound_3.play if !@music
+          @music = true
           @score = 3
         else
-          @sound_0.play
+          @sound_0.play if !@music
+          @music = true
           @score = 0
         end
 

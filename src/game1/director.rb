@@ -43,7 +43,7 @@ module Game1
 				@degree = 0 if @degree == 91
 			else
 				@lance.degree = -@degree
-				p @lance.rad = @degree * Math::PI / 180
+				@lance.rad = @degree * Math::PI / 180
 				@step += 1
 			end
 		end
@@ -61,7 +61,7 @@ module Game1
 			else
 				@cnt = 0
 				@step += 1
-				p @lance.speed = @volume.vol / 10
+				@lance.speed = @volume.vol / 10
 			end
 		end
 
@@ -73,7 +73,7 @@ module Game1
 		end
 
     	def play
-			@circle.draw	
+			@circle.draw
 			case @step
 				when 0
 					self.draw_game_title
@@ -109,8 +109,8 @@ module Game1
 			@lance.clear
 			@volume.clear
 			@circle.clear
-	
+
 		end
-	
+
 	end
 end
