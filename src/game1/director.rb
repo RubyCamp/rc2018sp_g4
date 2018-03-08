@@ -73,7 +73,7 @@ module Game1
 		end
 
     	def play
-			@circle.draw	
+			@circle.draw
 			case @step
 				when 0
 					self.draw_game_title
@@ -109,8 +109,8 @@ module Game1
 			@lance.clear
 			@volume.clear
 			@circle.clear
-	
+
 		end
-	
+
 	end
 end
