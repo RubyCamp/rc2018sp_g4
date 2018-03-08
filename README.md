@@ -1,5 +1,5 @@
 ﻿# rc2018sp_g4
-#2 requirement  
+## requirement  
 * window10  
 * ruby 2.3.3 32bit  
 * arduino uno(smalrubot)  
@@ -9,11 +9,11 @@
   
   
   
-#2 member  
+## member  
 - Yuhei FUJITA
 - Kang InSeob  
 
-#2 game list
+## game list
 
 |No|Title|Developer|Sensors|
 |:---|:---:|:---|:---|
