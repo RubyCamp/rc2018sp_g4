@@ -45,15 +45,15 @@ module Score
           @sound_10.play if !@music
           @music = true
           @score = 10
-        elsif @time <= 60
+        elsif @time <= 90
           @sound_7.play if !@music
           @music = true
           @score = 7
-        elsif @time <= 90
+        elsif @time <= 120
           @sound_5.play if !@music
           @music = true
           @score = 5
-        elsif @time <= 120
+        elsif @time <= 180
           @sound_3.play if !@music
           @music = true
           @score = 3
