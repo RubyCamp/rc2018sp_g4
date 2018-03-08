@@ -7,7 +7,7 @@ class Out
         @x = 240
         @y = 150
         @image.set_color_key(C_BLACK)
-        @menu_select = Sound.new("menu_music/select.wav")
+
     end
 
     def draw
