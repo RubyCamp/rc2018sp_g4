@@ -7,7 +7,6 @@ module Game5
       @input = input
       @frm = 1
       @score = score
-
       
       @gu = Image.load('images/gu.png')
       @cho = Image.load('images/cho.png')
@@ -19,18 +18,17 @@ module Game5
       @aiko = Image.load('images/aiko.png')
       @kati = Image.load('images/kati.png')
       @make = Image.load('images/make.png')
+      @taiko = Sound.new('game5/sound/ジャンケン321.wav')
+      @fini = Sound.new('game5/sound/勝負あり.wav')
+      @font = Font.new(50, font_name="ＭＳ Ｐゴシック")
+      @font2 = Font.new(80, font_name="ＭＳ Ｐゴシック")
       @i1, @j1, @k1, @i2, @j2, @k2, @c, @s, @v1, @v2, @sn= 0,0,0,0,0,0,0,0,0,0,0
       @bgm = [0, 0, 0, 0]
       @x1 = 50
       @y1 = 150
       @x2 = 520
       @y2 = 150
-      @taiko = Sound.new('game5/sound/ジャンケン321.wav')
-      @fini = Sound.new('game5/sound/勝負あり.wav')
-      
-      @font = Font.new(50, font_name="ＭＳ Ｐゴシック")
-      @font2 = Font.new(80, font_name="ＭＳ Ｐゴシック")
-      
+            
     end
 
     def play
@@ -102,9 +100,7 @@ module Game5
         if @v2 == 2
           Window.draw_font(600, 50,"リーチ！", @font)
         end
-    
-        #break if Input.key_push?(K_4)
-    
+        
         @c += 1
         @s = @c / 60
     
@@ -172,12 +168,11 @@ module Game5
   
   
       if @bgm[0] == 0
-         @fini.play
-          @bgm[0] = 1
+        @fini.play
+        @bgm[0] = 1
       end
     end
     
-    #break if Input.key_push?(K_4)
     @c = 600 if Input.key_push?(K_5)
     end
     

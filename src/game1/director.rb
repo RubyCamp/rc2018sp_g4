@@ -54,7 +54,7 @@ module Game1
 		end
 
 		def draw_speed_setting
-				  self.draw_msg("Speed: #{@volume.vol}")
+			self.draw_msg("Speed: #{@volume.vol}")
 			@volume.set_vol
 			@volume.draw_vol
 			@lance.draw

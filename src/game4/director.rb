@@ -1,5 +1,4 @@
 ﻿require_relative 'player'
-require 'smalrubot'
 require_relative 'clock_viewer'
 require_relative 'score'
 require_relative '../scene'
@@ -15,7 +14,6 @@ module Game4
     @@current_frame =0
     def initialize(input, score)
       @input = input
-      #@player = Player.new
       @stop = false
       @start = false
       @dx = 0
@@ -57,9 +55,6 @@ module Game4
         @bgm.play
         @bgm_on = true
       end
-      puts(@al)
-
-      #puts(@al)
 
       Window.draw_font(240, 50, "20秒で止めろ!", @font)
       if @db2 ==1  && @@current_frame %120 == 0
@@ -69,7 +64,6 @@ module Game4
       if @start
         if @@current_frame % 75 ==0
           if @al <= 380
-            puts("aaaaaa")
 
             if @music % 4 ==0
               @sound1.play
