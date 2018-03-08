@@ -23,11 +23,18 @@ module Game4
       @db2 = 0
       @al = 0
       @music =0
+      @bgm_on = false
       @font = Font.new(64, 'ＭＳ Ｐゴシック')
-      @sound1 = Sound.new("game4/music/jump.wav")
+      @sound1 = Sound.new("game4/music/jump.wav")    
       @sound2 = Sound.new("game4/music/coin.wav")
       @sound3 = Sound.new("game4/music/1UP.wav")
       @sound4 = Sound.new("game4/music/mario_die.wav")
+      @bgm =  Sound.new("game4/music/timer.mid")
+      @sound1.set_volume(180,0)
+      @sound2.set_volume(180,0)
+      @sound3.set_volume(180,0)
+      @sound4.set_volume(180,0)
+      @bgm.set_volume(255,0)
       @score = score
     end
     #def set_sounds
@@ -50,6 +57,10 @@ module Game4
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       @al = @input.get_light
+      if @bgm_on == false
+        @bgm.play
+        @bgm_on = true
+      end
       puts(@al)
       Window.draw_font(240, 50, "20秒で止めろ!", @font)
       if @db2 ==1  && @@current_frame %120 == 0
@@ -57,8 +68,8 @@ module Game4
       end
 
       if @start
-        if @@current_frame % 15 ==0
-          if @al <= 200
+        if @@current_frame % 30 ==0
+          if @al <= 380
             puts("aaaaaa")
             if @music % 4 ==0
               @sound1.play
@@ -91,6 +102,7 @@ module Game4
           if @stop
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+            @bgm.stop
             Scene.add(Score::Director.new(@input,@@current_frame), :score)
             Scene.move_to(:score)
             Scene.play
@@ -109,6 +121,7 @@ module Game4
           if @stop
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
+            @bgm.stop
             Scene.add(Score::Director.new(@input,@@current_frame), :score)
             Scene.move_to(:score)
             Scene.play
