@@ -61,7 +61,7 @@ module Game1
 
 			@time -= 0.1
 
-			if @cnt < 180
+			if @cnt < 300
 				@cnt += 1
 			else
 				@cnt = 0
