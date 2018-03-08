@@ -14,6 +14,11 @@ module Game1
 			@frm = 1
 			@step = 0
 			@cnt = 0
+			@music = false
+			@before = false
+			@throw_music = Sound.new("game1/music/throw.wav")
+			@drop_music = Sound.new("game1/music/drop.wav")
+			@before_music = Sound.new("game1/music/before_throw.wav")
 			@max_power = 0
 			@degree = 0
 			@time = 3.0
@@ -74,6 +79,8 @@ module Game1
 
     	def play
 			@circle.draw
+			@before_music.play if @before == false
+			@before = true
 			case @step
 				when 0
 					self.draw_game_title
@@ -81,9 +88,15 @@ module Game1
 					self.draw_degree_setting
 				when 2 #set initialize speed
 					self.draw_speed_setting
+
 				when 3 #shot
+					@before_music.stop
+					@throw_music.play
 					self.draw_shot
 				when 4
+					@throw_music.stop
+					@drop_music.play if @music == false
+					@music = true
 					Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x, @circle_position)}", @font)
 					@lance.draw
 					if @input.get_input then
@@ -109,7 +122,8 @@ module Game1
 			@lance.clear
 			@volume.clear
 			@circle.clear
-
+			@music = false
+			@before = false
 		end
 
 	end

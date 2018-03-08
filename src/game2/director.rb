@@ -15,8 +15,8 @@ module Game2
       @an = 0
       @iti = 350
       @aiti = 51
-      bgm=0
-      @gm = Sound.new('sound/tarara.wav')
+      @bgm=0
+      @gm = Sound.new('game2/sound/tarara.wav')
 
       @start=0
       @count=0
@@ -91,9 +91,9 @@ module Game2
         if @mod == 0
           Window.draw(0, 0, @end)
           Window.draw_font(250, 0,"タイマー #{@c/60}", @font)
-        if bgm == 0
+        if @bgm == 0
           @gm.play
-          bgm =  1
+          @bgm =  1
         end
 
           @cs += 1
@@ -137,7 +137,7 @@ module Game2
       @s = 0
       @l=0
       @d=0
-      bgm = 0
+      @bgm = 0
     end
 
   end

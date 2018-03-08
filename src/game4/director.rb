@@ -53,37 +53,24 @@ module Game4
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       @al = @input.get_light
-<<<<<<< HEAD
-=======
-
->>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
       if @bgm_on == false
         @bgm.play
         @bgm_on = true
       end
       puts(@al)
-<<<<<<< HEAD
-=======
 
       #puts(@al)
 
->>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
       Window.draw_font(240, 50, "20秒で止めろ!", @font)
       if @db2 ==1  && @@current_frame %120 == 0
         @start = true
       end
 
       if @start
-<<<<<<< HEAD
-        if @@current_frame % 30 ==0
-          if @al <= 380
-            puts("aaaaaa")
-=======
-        if @@current_frame % 45 ==0
+        if @@current_frame % 75 ==0
           if @al <= 380
             puts("aaaaaa")
 
->>>>>>> e7cff9577be88491b7f7a48210a51d8c6ab7d75c
             if @music % 4 ==0
               @sound1.play
               @music += 1
