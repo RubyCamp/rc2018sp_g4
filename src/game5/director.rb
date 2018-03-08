@@ -51,7 +51,7 @@ module Game5
         Window.draw_font(100, 100,"じゃんけんゲーム", @font2)
         Window.draw_font(300, 300,"二本先取!!", @font)
         @c += 1
-        if @c == 180
+        if @c == 120
           @sn = 1
           @c = 0
         end
@@ -82,7 +82,7 @@ module Game5
           end
         end
 
-        if @s <= 5 || @s >= 12
+        if @s <= 2 || @s >= 6
           if @j1 == 0
             Window.draw(@x1, @y1, @gu)
           elsif @j1 == 1
@@ -103,6 +103,7 @@ module Game5
         Window.draw(385, 0, @bou)
         Window.draw_font(0, 0,"P1 勝利数#{@v1}", @font)
         Window.draw_font(550, 0,"P2 勝利数#{@v2}", @font)
+        print "#{@s}"
 
         if @v1 == 1
           Window.draw_font(0, 50,"リーチ！", @font)
@@ -114,7 +115,7 @@ module Game5
         @c += 1
         @s = @c / 60
 
-        if @s > 5 && @s < 8
+        if @s > 2 && @s < 4
           Window.draw(280, 300, @c3)
         if @bgm[3] == 0
           #@janken_bgm.stop
@@ -122,36 +123,36 @@ module Game5
           @bgm[3] = 1
         end
 
-      elsif @s >= 8 && @s < 10
+      elsif @s >= 4 && @s < 5
         Window.draw(280, 300, @c2)
         if @bgm[2] == 0
           @taiko.play
           @bgm[2] = 1
         end
-      elsif @s >= 10 && @s < 12
+      elsif @s >= 5 && @s < 6
         Window.draw(280, 300, @c1)
         if @bgm[1] == 0
           @taiko.play
           @bgm[1] = 1
         end
 
-        elsif @s >= 12
+      elsif @s >= 6
           @i1 = 200
           @i2 = 200
         end
 
-        if @s >= 12
+        if @s >= 6
 
         if @j1 == @j2
           Window.draw(290, 450, @aiko)
         elsif (@j1 + 1) % 3 == @j2
           Window.draw(0, 450, @kati)
           Window.draw(580, 450, @make)
-          @v1 += @s / 16
+          @v1 += @s / 8
         else
           Window.draw(580, 450, @kati)
           Window.draw(0, 450, @make)
-          @v2 += @s / 16
+          @v2 += @s / 8
         end
       end
       if @v1 == 2
@@ -161,7 +162,7 @@ module Game5
         @sn = 2
         @v1 = 2
       end
-      if @s > 15 && @s < 20
+      if @s > 7 && @s < 9
         @i1,@j1,@k1 = 0,0,0
         @i2,@j2,@k2 = 0,0,0
         @c,@s = 0,0
