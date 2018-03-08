@@ -14,11 +14,6 @@ module Game1
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-
-<<<<<<< HEAD
-=======
-			
->>>>>>> 288f6e92ac4e5779ac8197557838fb9bd865c196
 		end
 
 		def draw_msg(msg)

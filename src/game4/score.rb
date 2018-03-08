@@ -1,4 +1,5 @@
 require_relative 'clock_viewer'
+require_relative 'output.rb'
 module Score
   class Director
     MAX_TO_SEC = 20 # 20秒まで計測
@@ -8,10 +9,17 @@ module Score
       @@current_frame =0
     def initialize(input,current_frame)
       @input = input
+      @output = Output.new
       @current_frame = current_frame
       @frm = 1
       @time = 0
       @font = Font.new(128, 'ＭＳ Ｐゴシック')
+      @sound_0 = Sound.new("game4/music/score_0.wav")
+      @sound_3 = Sound.new("game4/music/score_3.wav")
+      @sound_5= Sound.new("game4/music/score_5.wav")
+      @sound_7 = Sound.new("game4/music/score_7.wav")
+      @sound_10 = Sound.new("game4/music/score_10.wav")
+
     end
 
     def set_fields
@@ -25,6 +33,7 @@ module Score
     end
 
     def play
+      @output.draw
       @frm += 1
       @frm = 1 if @frm > 120
 
@@ -32,14 +41,19 @@ module Score
         @time = ((20 * SEC_TO_FRAME ) - @current_frame).abs
 
         if @time <= 30
+          @sound_10.play
           @score = 10
         elsif @time <= 60
+          @sound_7.play
           @score = 7
         elsif @time <= 90
+          @sound_5.play
           @score = 5
         elsif @time <= 120
+          @sound_3.play
           @score = 3
         else
+          @sound_0.play
           @score = 0
         end
 
