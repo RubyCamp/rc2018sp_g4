@@ -7,7 +7,6 @@ module Game5
       @input = input
       @frm = 1
       @score = score
-      
       @gu = Image.load('images/gu.png')
       @cho = Image.load('images/cho.png')
       @pa = Image.load('images/pa.png')
@@ -112,7 +111,6 @@ module Game5
           Window.draw_font(600, 50,"リーチ！", @font)
         end
 
-        
         @c += 1
         @s = @c / 60
 
@@ -181,11 +179,13 @@ module Game5
 
 
       if @bgm[0] == 0
-        @fini.play
-        @bgm[0] = 1
+          @janken_bgm.stop
+          @fini.play if @fin_flg == false
+          @fin_flg = true
+          @bgm[0] = 1
       end
     end
-    
+
     @c = 600 if Input.key_push?(K_5)
     end
 

@@ -22,7 +22,9 @@
 |:---|:---:|:---|:---|
 |00|Game body|Kang InSeob|Button, Light, Tilt, Sound|
 |01|Trhowing Game|Yuhei FUJITA|Button, Light, Tilt|
+|02|Balance Game|kotaro Mashima Kohei Baba|Light, Tilt|
 |04|Timer Stop Game|Akifumi Nomasaki|Button, Light|
+|05|Janken Game|kotaro Mashima Kohei Baba|Button|
 
 ## presentation slide
 [Google Slide](https://docs.google.com/presentation/d/1p0748L1SLh66EKmGwSON5x-Q-BQFHn-KN-KDgLmBP8k/edit?usp=sharing)
