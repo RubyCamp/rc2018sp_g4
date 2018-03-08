@@ -15,6 +15,8 @@ module Game2
       @an = 0
       @iti = 350
       @aiti = 51
+      @bgm=0
+      @gm = Sound.new('game2/sound/tarara.wav')
 
       @start=0
       @count=0
@@ -41,10 +43,10 @@ module Game2
           @count = 0
         end
       elsif @title == 1
-      
+
         @count +=1
         @start +=1
-      
+
         if @count==25
            @count=0
           @d= @input.get_tilt
@@ -54,7 +56,7 @@ module Game2
         if @start <= 300
           @l = 5
         end
-      
+
         if @mod == 1 || @mod == 2
           Window.draw_rot(0, 300, @bar, @ran, 401, 0)
           Window.draw_rot(@iti, 200, @hako, @ran, @aiti, 101)
@@ -73,11 +75,11 @@ module Game2
           end
           Window.draw_font(300, 0,"タイム #{@c/60}", @font)
         end
-      
+
         if (@iti < 20 || @iti > 680) && @cs < 600
           @mod = 0
         end
-      
+
         if (@iti < 20 || @iti > 680) && @cs >= 600
           @mod = 3
           @s = 1
@@ -85,10 +87,15 @@ module Game2
           @mod = 3
           @s = 2
         end
-      
+
         if @mod == 0
           Window.draw(0, 0, @end)
           Window.draw_font(250, 0,"タイマー #{@c/60}", @font)
+        if @bgm == 0
+          @gm.play
+          @bgm =  1
+        end
+
           @cs += 1
           if @cs == 600
             @an = 0
@@ -98,7 +105,7 @@ module Game2
             @start = 0
           end
         end
-      
+
         if @mod == 3
           if @s == 1
             Window.draw_font(200, 200,"勝利　プレイヤー１", @font)
@@ -109,9 +116,9 @@ module Game2
             Scene.move_to(:game)
             self.clear
           end
-    
+
         end
-      end          
+      end
     end
 
     def clear
@@ -130,7 +137,7 @@ module Game2
       @s = 0
       @l=0
       @d=0
-
+      @bgm = 0
     end
 
   end

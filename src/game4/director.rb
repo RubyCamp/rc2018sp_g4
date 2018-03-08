@@ -53,7 +53,6 @@ module Game4
       @db = @input.get_sw1
       @db2 = @input.get_sw2
       @al = @input.get_light
-
       if @bgm_on == false
         @bgm.play
         @bgm_on = true
