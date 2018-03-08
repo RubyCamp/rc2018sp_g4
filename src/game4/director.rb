@@ -37,10 +37,6 @@ module Game4
       @bgm.set_volume(255,0)
       @score = score
     end
-    #def set_sounds
-    #  @sound1 = Sound.new("1UP.wav")
-
-    #end
 
     def set_fields
 
@@ -108,6 +104,7 @@ module Game4
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
             @bgm.stop
+            @bgm_on = false
             Scene.add(Score::Director.new(@input,@@current_frame), :score)
             Scene.move_to(:score)
             Scene.play
@@ -127,6 +124,7 @@ module Game4
             set_fields
             @clock_viewer.draw(frame: @@current_frame, color: C_BLACK)
             @bgm.stop
+            @bgm_on = false
             Scene.add(Score::Director.new(@input,@@current_frame), :score)
             Scene.move_to(:score)
             Scene.play
