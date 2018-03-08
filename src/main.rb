@@ -28,6 +28,8 @@ Scene.add(Game4::Director.new(input, player1), :game4)
 Scene.add(Game5::Director.new(input, player1), :game5)
 
 Scene.move_to(:title)
+#Scene.move_to(:game3)
+
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
   Scene.play
@@ -36,3 +38,4 @@ end
 __END__
 ここからコメント
 変更点とか今発見された問題を書いてください
+f

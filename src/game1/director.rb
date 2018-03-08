@@ -1,6 +1,7 @@
 require_relative 'lance'
 require_relative 'volume'
 require_relative 'score'
+require_relative 'circle'
 
 module Game1
 	class Director
@@ -8,17 +9,15 @@ module Game1
 			@input = input
 			@lance = Lance.new(input)
 			@volume = Volume.new(input)
+			@circle = Circle.new(input)
 			@font = Font.new(32, 'Arial')
 			@frm = 1
 			@step = 0
 			@cnt = 0
 			@max_power = 0
 			@degree = 0
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> 7e7a32ba38897161300b01eeff3ad9f70b3c26bb
+			@time = 3.0
+			@circle_position
 		end
 
 		def draw_msg(msg)
@@ -36,31 +35,33 @@ module Game1
 
 		def draw_degree_setting
 			@lance.ch_degree(-@degree)
-			self.draw_msg("Push Button\n#{@lance.degree}degree")
+			self.draw_msg("Push Button\n#{-@lance.degree}")
 			@lance.draw
 
 			if @input.get_sw2 == 0
 				@degree += 1
 				@degree = 0 if @degree == 91
 			else
-				@lance.degree = @degree
+				@lance.degree = -@degree
 				@lance.rad = @degree * Math::PI / 180
 				@step += 1
 			end
 		end
 
 		def draw_speed_setting
-			self.draw_msg("Shout!!\nSpeed: #{@volume.vol}")
+				  self.draw_msg("Speed: #{@volume.vol}\n#{@time.to_i}")
 			@volume.set_vol
 			@volume.draw_vol
 			@lance.draw
+
+			@time -= 0.1
 
 			if @cnt < 180
 				@cnt += 1
 			else
 				@cnt = 0
 				@step += 1
-				@lance.speed = @volume.max_vol
+				@lance.speed = @volume.vol / 10
 			end
 		end
 
@@ -68,9 +69,11 @@ module Game1
 			@lance.set_next_posiotion
 			@lance.draw
 			@step += 1 if @lance.hit?
+			@circle_position = @circle.move_circle
 		end
 
     	def play
+			@circle.draw
 			case @step
 				when 0
 					self.draw_game_title
@@ -79,10 +82,14 @@ module Game1
 				when 2 #set initialize speed
 					self.draw_speed_setting
 				when 3 #shot
-					self.draw_speed_shot
+					self.draw_shot
 				when 4
-						  Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x)}", @font)
+					Window.draw_font(250, 280, "Score: #{Score.get_score(@lance.x, @circle_position)}", @font)
 					@lance.draw
+					if @input.get_input then
+						Scene.move_to(:game)
+						self.clear
+					end
 			end
 
     	end
@@ -91,10 +98,19 @@ module Game1
 			@frm += 1
 			@frm = 1 if @frm > max_cnt
 		end
-	end
 
-    def clear
-    	@frm = 1
-    	@dx = 0
-    end
-  end
+		def clear
+			@frm = 1
+			@step = 0
+			@cnt = 0
+			@max_power = 0
+			@degree = 0
+			@time = 3.0
+			@lance.clear
+			@volume.clear
+			@circle.clear
+
+		end
+
+	end
+end

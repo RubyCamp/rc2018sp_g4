@@ -12,15 +12,19 @@ module Game1
 		end
 
 		def set_vol
-			@vol = @input.get_sound
+			@vol = @input.get_light
 			@max_vol = @vol if @max_vol < @vol
 		end
 
 		def draw_vol
-				  lv = "|" * @vol
-				  #space = " " * (100 - @vol)
-				  str = "MIN" + lv  + "MAX"
-			Window.draw_font(@x, @y, str, @font)
+			Window.draw_font(@x, @y, "|" * (@vol / 5), @font)
+		end
+
+		def clear
+			@vol = 0
+			@max_vol = 0
+			@x = 10
+			@y = 550
 		end
 	end
 end
