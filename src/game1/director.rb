@@ -11,6 +11,7 @@ module Game1
 			@volume = Volume.new(input)
 			@circle = Circle.new(input)
 			@font = Font.new(32, 'Arial')
+			#@back_ground = Image.load('images/throwing.png')
 			@frm = 1
 			@step = 0
 			@cnt = 0
@@ -78,6 +79,7 @@ module Game1
 		end
 
     	def play
+			#Window.draw(0,0,@back_ground)
 			@circle.draw
 			@before_music.play if @before == false
 			@before = true
