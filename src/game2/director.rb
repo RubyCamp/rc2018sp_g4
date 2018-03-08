@@ -19,6 +19,8 @@ module Game2
       @bgm=0
       @gm = Sound.new('game2/sound/tarara.wav')
       @bgm_b = Sound.new('game2/sound/balance_bgm.wav')
+      @win_music = Sound.new('game2/sound/win_balance.wav')
+      @win_flg = false
       @bgm_b.loop_count = -1
       @bgm_flg = false
 
@@ -117,6 +119,8 @@ module Game2
 
         if @mod == 3
           @bgm_b.stop
+          @win_music.play if @win_flg == false
+          @win_flg = true
           if @s == 1
             Window.draw_font(200, 200,"勝利　プレイヤー１", @font)
           elsif @s == 2
