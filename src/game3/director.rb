@@ -20,13 +20,12 @@ module Game3
       @frm += 1
       @frm = 0 if @frm > 30
 
-      @dot1.draw
-      @dot2.draw
-      @dot3.draw
-      @dot4.draw
-      @mid.draw
-
-
+      #@dot1.draw
+      #@dot2.draw
+      #@dot3.draw
+      #@dot4.draw
+      #@mid.draw
+      exit
     end
 
     def clear
@@ -35,7 +34,6 @@ module Game3
     end
 
     def calc
-
       min = 9999999
       temp = 0
       d1 = 0
@@ -55,19 +53,16 @@ module Game3
           y2 = (idx_y - @dot2.get_y).abs
           d2 = Math.sqrt(x2 * x2 + y2 * y2)
           temp += d2
-
           
           x3 = (idx_x - @dot3.get_x).abs
           y3 = (idx_y - @dot3.get_y).abs
           d3 = Math.sqrt(x3 * x3 + y3 * y3)
           temp += d3
-
           
           x4 = (idx_x - @dot4.get_x).abs
           y4 = (idx_y - @dot4.get_y).abs
           d4 = Math.sqrt(x4 * x4 + y4 * y4)
           temp += d4
-
                   
           if min > temp
             @mid.set_x(idx_x)
@@ -78,9 +73,10 @@ module Game3
             @dy = idx_y
           end
           temp = 0
-
         end
       end
     end
+
+
   end
 end
