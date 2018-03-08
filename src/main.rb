@@ -11,6 +11,10 @@ require_relative 'game5/director'
 require_relative 'sensor_input'
 require_relative 'player_score'
 
+<<<<<<< HEAD
+=======
+sound = Sound.new("game4/music/1UP.wav")
+>>>>>>> 298a64876afcbdff4cd364aa29205843ebba4a23
 
 Window.width = 800
 Window.height = 600
@@ -22,8 +26,12 @@ player2 = Player_score.new
 
 Scene.add(Title::Director.new(input), :title)
 Scene.add(Game::Director.new(input), :game)
+<<<<<<< HEAD
 
 #Scene.add(Game1::Director.new(input), :game1)
+=======
+Scene.add(Game1::Director.new(input), :game1)
+>>>>>>> 298a64876afcbdff4cd364aa29205843ebba4a23
 Scene.add(Game2::Director.new(input, player1), :game2)
 Scene.add(Game3::Director.new(input, player1), :game3)
 Scene.add(Game4::Director.new(input, player1), :game4)
