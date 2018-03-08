@@ -11,12 +11,16 @@ module Game2
       @hako = Image.load('images/hako.png')
       @end = Image.load('images/gameover.png')
       @huji = Image.load('images/019AME5031_TP_V.png')
+
       @ran = 0
       @an = 0
       @iti = 350
       @aiti = 51
       @bgm=0
       @gm = Sound.new('game2/sound/tarara.wav')
+      @bgm_b = Sound.new('game2/sound/balance_bgm.wav')
+      @bgm_b.loop_count = -1
+      @bgm_flg = false
 
       @start=0
       @count=0
@@ -37,6 +41,7 @@ module Game2
 
       if @title == 0
         Window.draw_font(70, 10,"バランスゲーム", @font2)
+
         @count +=1
         if @count == 300
           @title = 1
@@ -58,6 +63,8 @@ module Game2
         end
 
         if @mod == 1 || @mod == 2
+          @bgm_b.play if @bgm_flg == false
+          @bgm_flg = true
           Window.draw_rot(0, 300, @bar, @ran, 401, 0)
           Window.draw_rot(@iti, 200, @hako, @ran, @aiti, 101)
           Window.draw(249, 265, @huji)
@@ -89,9 +96,11 @@ module Game2
         end
 
         if @mod == 0
+          @bgm_b.stop
           Window.draw(0, 0, @end)
           Window.draw_font(250, 0,"タイマー #{@c/60}", @font)
         if @bgm == 0
+          @bgm_flg = false
           @gm.play
           @bgm =  1
         end
@@ -107,6 +116,7 @@ module Game2
         end
 
         if @mod == 3
+          @bgm_b.stop
           if @s == 1
             Window.draw_font(200, 200,"勝利　プレイヤー１", @font)
           elsif @s == 2
@@ -137,7 +147,9 @@ module Game2
       @s = 0
       @l=0
       @d=0
-      @bgm = 0
+      @bgm=0
+      @bgm_flg = false
+
     end
 
   end
