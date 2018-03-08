@@ -62,7 +62,7 @@ module Game2
           @d= @input.get_tilt
           @l= @input.get_light
         end
-          @l= @l/3.0 + 4
+          @l= @l/2.5 + 3
         if @start <= 300
           @l = 5
         end

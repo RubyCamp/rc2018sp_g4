@@ -76,7 +76,7 @@ module Game5
           if @i2 > 180
             @k2 = 1
           elsif @i2 > 0
-            p "!!"
+            #p "!!"
             @j2 = (@j2 + 1) % 3
             @i2 = 0
           end
@@ -103,7 +103,7 @@ module Game5
         Window.draw(385, 0, @bou)
         Window.draw_font(0, 0,"P1 勝利数#{@v1}", @font)
         Window.draw_font(550, 0,"P2 勝利数#{@v2}", @font)
-        print "#{@s}"
+        #print "#{@s}"
 
         if @v1 == 1
           Window.draw_font(0, 50,"リーチ！", @font)
